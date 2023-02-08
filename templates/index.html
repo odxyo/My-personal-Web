@@ -1,0 +1,1350 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    {%load static%}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300&display=swap" rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{%static 'css/index.css' %}">
+    <title>My website</title>
+</head>
+
+<body>
+
+    <!--  header  -->
+    {%for profi in profile%}
+    <nav class="navbar navbar-expand-lg navbar-light navbar_fix   shadow-sm" style="z-index: 100;">
+        <div class="container-fluid  menu-context">
+            <a class="navbar-brand" href="#contact"><img src="{{profi.profile_pic.url}} " alt="image " class="profile_img ">
+                <div class="dube">
+
+                    <div class="background">
+                        <span style="--o:0"></a></span>
+                        <span style="--o:1"></a></span>
+                        <span style="--o:2"></a></span>
+                        <span style="--o:3"></a></span>
+                    </div>
+                    <div class="top"></div>
+                </div>
+
+                <ul class="nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav">
+                        <a class="nav-link logo--me " aria-current="page " href="# "><i class="fa-brands fa-facebook "></i></a>
+                    </li>
+                    <li class="nav ">
+                        <a class="nav-link logo--me " aria-current="page " href="# "><i class="fa-brands fa-whatsapp "></i></a>
+                    </li>
+                    <li class="nav ">
+                        <a class="nav-link logo--me " href="# "><i class="fa-brands fa-instagram "></i></a>
+                    </li>
+                </ul>
+                <div class="toggle ">
+                    <button class="navbar-toggler " type="button " data-bs-toggle="collapse " data-bs-target="#navbarSupportedContent " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
+                <span class="navbar-toggler-icon "></span>
+               </button>
+                </div>
+        </div>
+        <a href="#">
+            <marquee class="box_marquee" behavior="" direction="right">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti</marquee>
+        </a>
+        <div class="navigation">
+            <ul class="navbar-nav nav_contact nav-pills">
+                <li style="--i:0; " class="nav-item  ">
+                    <a class="nav-link btn nav-fill" href="#i_do ">I_Do</a>
+                </li>
+                <li style="--i:2; " class="nav-item nav--bar ">
+                    <a class="nav-link btn menu--link " href="#portfolio ">Portfolio</a>
+                </li>
+                <li style="--i:3; " class="nav-item nav--bar ">
+                    <a class="nav-link btn menu--link" href="#resume ">Resume</a>
+                </li>
+                <li style="--i:4; " class="nav-item nav--bar ">
+                    <a class="nav-link btn menu--link" href="#pricing ">Pricing</a>
+                </li>
+                <li style="--i:5; " class="nav-item nav--bar ">
+                    <a class="nav-link btn menu--link" href="#blog">Blog</a>
+                </li>
+                <li style="--i:6; " class="nav-item nav--bar ">
+                    <a class="nav-link btn menu--link" href="#contact">contect</a>
+                </li>
+                <li style="--i:7; " class="nav-item nav--bar ">
+                    <a class="nav-link btn menu--link" href="#contact">Award</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <!-- profile -->
+    <div class="first text-center">
+        <h1>HELLO! WELCOME TO MY PORTFOLIO</h1>
+    </div>
+
+
+    <div class="oo">
+        <div class="night">
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+            <div class="shooting_star"></div>
+
+            <div class="bk text-center">
+                <p class="po"></p>
+                <p class="poo"></p>
+                <p class="poop"></p>
+                <div class="text-center picture-profile">
+
+                    <a href="{%static 'img/monkey.jpg' %} "><img src="{{profi.profile_pic.url}} " alt="" class="rounded" style="margin-top: 6rem; "></a>
+
+
+
+                    <br>
+                    <br>
+                    <h1>Mr. JacoB</h1>
+                    <span class="m-2 ">I am a</span>
+                    <span class="auto-type "></span>
+                    <div class="container--text "></div>
+
+                    <div class="mb-4 cont--mebox">
+                        <br>
+                        <a class="nav-link cont--me" href="#contact ">CONTACT ME </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    {%endfor%}
+
+    <style>
+        .dube {
+            /* width: 100%; */
+            position: relative;
+            width: 30px;
+            height: 30px;
+            transform-style: preserve-3d;
+            transform: rotateX(-40deg);
+            animation: animation 20s infinite;
+        }
+        
+        @keyframes animation {
+            0% {
+                transform: rotateX(-10deg) rotateY(0deg);
+            }
+            100% {
+                transform: rotateX(-10deg) rotateY(360deg);
+            }
+        }
+        
+        .dube div {
+            /* top: 10; */
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            margin-left: -3rem;
+        }
+        
+        .dube div span {
+            position: absolute;
+            /* top: 0; */
+            left: 0;
+            width: 20%;
+            height: 20%;
+            /* background-image: url("img/mani.jpg"); */
+            background: linear-gradient(rgb(7, 7, 7), rgb(255, 60, 60));
+            transform: rotateY(calc(50deg * var(--o))) translateZ(30px);
+        }
+        
+        .top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 30px;
+            background-image: url("img/mani.jpg");
+            /* transform: translateZ(200px); */
+            /* background: blue; */
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background-image: url("img/profile.jpg");
+            transform: translateZ(-200px);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 4px;
+            /* filter: blur(20px); */
+            /* box-shadow: 0 0 120px rgb(255, 5, 0.5), 0 0 200px rgb(255, 5, 0.7), 0 0 300px rgb(255, 5, 1), 0 0 400px rgb(255, 5, .2), 0 0 500px rgb(255, 5, 1.5); */
+        }
+    </style>
+
+    <!-- what i do  -->
+
+    <div class="container text-center " id="i_do">
+        <div class=" ">
+            <div class="col-lg-12 ">
+                <div class="section-title ">
+                    <span class=" ">Features</span>
+                    <h2 class=" ">What I Do</h2>
+                </div>
+            </div>
+        </div>
+        <div class="text-center row box--ido">
+            <!-- start -->{%for p in i_do%}
+            <div class="col-lg-5 col-xl-4 col-md-6 col-13 p-4 ">
+                <img style="width: 3rem; height: 3rem;object-fit: cover;margin-bottom: 1rem;" src="{{p.icons.url}}" alt="icon">
+                <div class="shadow-sm text-center white-backgroud">
+                    <div class="inner rn-service ">
+
+                        <div class="content wh--do">
+                            <h4 class="title ">
+                                <a href="{%url 'detail' p.id%} " id="do-name" class="nav-link por--text pt-3">{{p.job_name}}</a>
+                            </h4>
+                            <p class="drt p-3">{{p.job_dsp}}</p>
+                        </div>
+
+                        <a class="read-more-button " href="# ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                        </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>{%endfor%}
+            <!-- endbox -->
+
+        </div>
+    </div>
+
+    <!--  Portfolio-->
+
+    <div class="container portfolio " id="portfolio">
+        <div class="row ">
+            <div class="col-lg-12 ">
+                <div class="section-title text-center ">
+                    <span class="subtitle ">Visit my portfolio and keep your feedback</span>
+                    <h2 class="title ">My Portfolio</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row ">
+            {% for portl in port%}
+            <div class="col-lg-4 col-xl-3 col-md-6 col-12 ">
+                <div class="inner shadow-sm cours2 white-backgroud" style="overflow:hidden; ">
+                    <div class="text-center img--hover">
+                        <a href="{% url 'portfolio' portl.id %}">
+                            <img src="{{portl.port_pic.url}}" alt="Portfolio Images " class="Portfolio_Images2 hover">
+                        </a>
+                    </div>
+                    <div class="">
+
+                        <div class="category-info m-lg-4 ">
+
+                            <a href="{% url 'portfolio' portl.id %}" class="nav-link text--text">{{portl.name_work}}</a>
+                            <a href="# "><i class="fa-regular fa-heart por--logo "></i></a>
+                            <span>{{portl.like}}</span>
+
+                        </div>
+                        <div class="cours4 col-12 text-center ">
+                            <a href="{% url 'portfolio' portl.id %}" class="nav-link cou ">{{portl.title}}<i class="fa-solid fa-arrow-up "></i></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>{%endfor%}
+
+        </div>
+
+
+
+    </div>
+
+    <!--  resume  -->
+    <br>
+    <br>
+    <div class="container text-center resume " id="resume">
+        <div class="row ">
+            <div class="col-lg-12 ">
+                <div class="section-title text-center ">
+                    <span class="subtitle ">7+ Years of Experience</span>
+                    <h2 class="title ">My Resume</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12 " id="resume_box">
+            <div class="sticky">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item nav-tabs" role="presentation">
+                        <button class="nav-link " id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab" aria-controls="education">Education</button>
+                    </li>
+                    <li class="nav-item" role="presentation ">
+                        <button class="nav-link" id="skill-tab" data-bs-target="#skill" data-bs-toggle="tab" type="button" aria-controls="skill" aria-selected="false"> Skills</button>
+                    </li>
+                    <li class="nav-item" role="presentation ">
+                        <button class="nav-link" id="experience-tab" data-bs-target="#experience" data data-bs-toggle="tab" type="button" aria-controls="experience" aria-selected="false">Experience</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="interview-tab" data-bs-target="#interview" data-bs-toggle="tab" type="button" aria-controls="interview" aria-labelledby="false">Interviews</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="row tab-content " id="myTabContent ">
+                <!-- .....--------------Education------------ -->
+
+                <div class="tabcontent tab-pane fade show active" id="education" role="tabpanel" aria-labelledby="education-tab">
+
+                    <div class="row " id="educate ">
+                        <div data-aos-once="true " class=" col-md-6 educate_class">
+                            <span class="subtitle ">2001-2003</span>
+                            <h4 class="maintitle ">Education</h4>
+                            <div class=" shadow-sm m-3 p-1 resume--box white-backgroud">
+                                <div class="resume-single-list m-5 ">
+                                    <div class="inner ">
+                                        <div class="heading ">
+                                            <div class="title ">
+                                                <h5>tranlatder </h5>
+                                                <span>work at HTT company (2003-2004)</span>
+                                            </div>
+                                            <div class="date-of-time ">
+                                                <span>4.30$/1</span>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <p class="description">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" shadow-sm m-3 p-1 resume--box">
+
+                                <div class="resume-single-list m-5 ">
+                                    <div class="inner ">
+                                        <div class="heading ">
+                                            <div class="title ">
+                                                <h5>tranlatder </h5>
+                                                <span>work at HTT company (2003-2004)</span>
+
+                                            </div>
+                                            <div class="date-of-time ">
+                                                <span>4.30$/1</span>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <p class="description ">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class=" col-md-6 col-12 educate_class2 ">
+
+                            <span class="subtitle ">2001-2003</span>
+                            <h4 class="maintitle ">JOB</h4>
+                            <div class=" shadow-sm m-3 p-1 resume--box">
+                                <div class="resume-single-list m-5 ">
+                                    <div class="inner ">
+                                        <div class="heading ">
+                                            <div class="title ">
+                                                <h5>tranlatder </h5>
+                                                <span>work at HTT company (2003-2004)</span>
+                                            </div>
+                                            <div class="date-of-time ">
+                                                <span>4.30$/1</span>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <p class="description ">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" shadow-sm m-3 p-1 resume--box">
+
+                                <div class="resume-single-list m-5 ">
+                                    <div class="inner ">
+                                        <div class="heading ">
+                                            <div class="title ">
+                                                <h5>tranlatder </h5>
+                                                <span>work at HTT company (2003-2004)</span>
+
+                                            </div>
+                                            <div class="date-of-time ">
+                                                <span>4.30$/1</span>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <p class="description ">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+                <!-- .....--------------skill------------ -->
+
+                <div class="tabcontent fade" id="skill" role="tabpanel" aria-labelledby="skill-tab">
+                    <div id="skil "><span class="subtitle ">Features</span>
+                        <h4>Design Skill</h4>
+                    </div>
+
+                    <div class="row ">
+                        <!-- Start Single Progressbar  -->
+                        {%for sk in skill%}
+                        <div class="col-lg-6 col-md-6 col-12 ">
+                            <div class="progress-wrapper ">
+                                <div class="content ">
+                                    <!-- Start Single Progress Charts -->
+                                    <div class="progress-charts ">
+                                        <h6 class="heading heading-h6 ">{{sk.name_work_skill}}</h6>
+                                        <div class="progress">
+                                            <div class="progress-bar" data-wow-duration="0.5s " data-wow-delay=".3s " role="progressbar " style="width: 90% " aria-valuenow="85" aria-valuemin="0 " aria-valuemax="100 "><span class="percent-label ">{{sk.skill}}%</span></div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Progress Charts -->
+                                </div>
+                            </div>
+                        </div>
+                        {%endfor%}
+                        <!-- End Single Progressbar  -->
+
+                        <!-- Start Single Progressbar  -->
+                        <div class="col-lg-6 col-md-6 col-12  ">
+                            <div class="progress-wrapper ">
+                                <div class="content ">
+                                    <!-- Start Single Progress Charts -->
+                                    <div class="progress-charts ">
+                                        <h6 class="heading heading-h6 ">HTML</h6>
+                                        <div class="progress ">
+                                            <div class="progress-bar  " data-wow-duration="0.5s " data-wow-delay=".4s " role="progressbar " style="width: 85% " aria-valuenow="85 " aria-valuemin="0 " aria-valuemax="100 "><span class="percent-label ">85%</span></div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Progress Charts -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Progressbar  -->
+                        <!-- Start Single Progressbar  -->
+                        <div class="col-lg-6 col-md-6 col-12 ">
+                            <div class="progress-wrapper ">
+                                <div class="content ">
+                                    <!-- Start Single Progress Charts -->
+                                    <div class="progress-charts ">
+                                        <h6 class="heading heading-h6 ">Python</h6>
+                                        <div class="progress">
+                                            <div class="progress-bar" data-wow-duration="0.5s " data-wow-delay=".5s " role="progressbar " style="width: 70% " aria-valuenow="70 " aria-valuemin="0 " aria-valuemax="100 "><span class="percent-label ">70%</span></div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Progress Charts -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Progressbar  -->
+
+                        <!-- Start Single Progressbar  -->
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="progress-wrapper ">
+                                <div class="content ">
+                                    <!-- Start Single Progress Charts -->
+                                    <div class="progress-charts ">
+                                        <h6 class="heading heading-h6 ">CSS</h6>
+                                        <div class="progress ">
+                                            <div class="progress-bar " data-wow-duration="0.5s " data-wow-delay=".6s " role="progressbar " style="width: 85% " aria-valuenow="85 " aria-valuemin="0 " aria-valuemax="100 "><span class="percent-label ">85%</span></div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Progress Charts -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Progressbar  -->
+                        <!-- Start Single Progressbar  -->
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="progress-wrapper ">
+                                <div class="content ">
+                                    <!-- Start Single Progress Charts -->
+                                    <div class="progress-charts ">
+                                        <h6 class="heading heading-h6 ">Javascript</h6>
+                                        <div class="progress ">
+                                            <div class="progress-bar " data-wow-duration="0.5s " data-wow-delay=".7s " role="progressbar " style="width: 35% " aria-valuenow="85 " aria-valuemin="0 " aria-valuemax="100 "><span class="percent-label ">35%</span></div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Progress Charts -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Progressbar  -->
+
+                    </div>
+
+                </div>
+
+                <!-- .....--------------experience------------ -->
+
+                <div class="tabcontent fade" id="experience" role="tabpanel" aria-labelledby="experience-tab" class=" col-md-6 col-12 ">
+                    <div class="eperience_animation">
+                        <div id="exper ">
+                            <span class="subtitle ">2001-2003</span>
+                            <h4 class="maintitle ">Experience </h4>
+                        </div>
+                        <div class=" shadow-sm m-3 p-1 resume--box  ">
+                            <div class="resume-single-list m-5 ">
+                                <div class="inner ">
+                                    <div class="heading ">
+                                        <div class="title ">
+                                            <h5>Work at BBT company</h5>
+                                            <span>20012-2015</span>
+                                        </div>
+                                        <div class="date-of-time ">
+                                            <span>7.30$/1</span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <p class="description">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" shadow-sm m-3 p-1 resume--box">
+                            <div class="resume-single-list m-5 ">
+                                <div class="inner ">
+                                    <div class="heading ">
+                                        <div class="title ">
+                                            <h5>Work at BBT company</h5>
+                                            <span>20012-2015</span>
+                                        </div>
+                                        <div class="date-of-time ">
+                                            <span>7.30$/1</span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <p class="description">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- .....--------------interview ------------ -->
+
+                <div id="interview" class="tabcontent fade" role="tabpanel" aria-labelledby="interview-tab" class=" col-md-6 col-12 educate_class ">
+                    <div class="eperience_animation">
+                        <div id="inter ">
+                            <span class="subtitle ">2001-2003</span>
+                            <h4 class="maintitle ">Interview</h4>
+                        </div>
+                        <div class=" shadow-sm m-3 p-1 resume--box">
+                            <div class="resume-single-list m-5 ">
+                                <div class="inner ">
+                                    <div class="heading ">
+                                        <div class="title ">
+                                            <h5>Forieng</h5>
+                                            <span>about ho to job in foriegn</span>
+                                        </div>
+                                        <div class="date-of-time ">
+                                            <!-- <span>4.30$/1</span> -->
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <p class="description">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" shadow-sm m-3 p-1 resume--box">
+                            <div class="resume-single-list m-5 ">
+                                <div class="inner ">
+                                    <div class="heading ">
+                                        <div class="title ">
+                                            <h5>Forieng</h5>
+                                            <span>about ho to job in foriegn</span>
+                                        </div>
+                                        <div class="date-of-time ">
+                                            <!-- <span>4.30$/1</span> -->
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <p class="description">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .progress-bar {
+            background-color: var(--pink);
+            height: 12px;
+            margin-top: 2px;
+            animation: 2s skill;
+        }
+        
+        @keyframes skill {
+            0% {
+                width: 0px;
+            }
+        }
+        
+        .educate_class {
+            animation: 1s education;
+            opacity: 1;
+        }
+        
+        .educate_class2 {
+            animation: 2s education2;
+            opacity: 1;
+        }
+        
+        @keyframes education {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes education2 {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+        }
+        
+        .eperience_animation {
+            animation: 1s eperience_ani;
+            opacity: 1;
+        }
+        
+        @keyframes eperience_ani {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+        }
+    </style>
+
+    <!-- ==== Accomplishments and awards ===== -->
+    <div class="container text-center resume ">
+        <div class="row ">
+            <div class="col-lg-12 ">
+                <div class="section-title text-center ">
+                    <span class=" ">7+ Years of Experience</span>
+                    <h2 class="">Accomplishments and awards</h2>
+                </div>
+            </div>
+        </div>
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"></button>
+            </div>
+            <div class="carousel-inner white-backgroud row">
+                {%for aw in award%}
+                <div class="carousel-item {% if forloop.counter0 == 0%}active {%endif%}">
+                    <img src="{{aw.award_picture.url}}" class=" img--slide" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5> {{aw.award_title}}</h5>
+                        <p>{{aw.award_explain}}</p>
+                        <h4>{{aw.time}}</h4>
+                        <a href="# " class="nav-link shadow-sm oder p-2 ">View photos</a>
+                    </div>
+                </div>
+                {%endfor%}
+                <!-- <div class="carousel-item active ">
+                    <img src="{%static 'img/durk.jpg'%} " class="img--slide " alt="... ">
+                    <div class="carousel-caption d-none d-md-block ">
+                        <h5>Second slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <img src="{%static 'img/monkey.jpg'%} " class="img--slide " alt="... ">
+                    <div class="carousel-caption d-none d-md-block ">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <img src="{%static 'img/playguitar.jpg'%} " class="img--slide " alt="... ">
+                    <div class="carousel-caption d-none d-md-block ">
+                        <h5>fourth slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div> -->
+            </div>
+            <button class="carousel-control-prev " type="button " data-bs-target="#carouselExampleCaptions " data-bs-slide="prev">
+        
+              <svg style="color: rgb(255, 72, 72); "xmlns="http://www.w3.org/2000/svg " width="36 " height="36 " fill="currentColor " class="bi bi-chevron-double-left " viewBox="0 0 16 16 ">
+                <path fill-rule="evenodd " d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z "/>
+                <path fill-rule="evenodd " d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z "/>
+              </svg>
+            </button>
+            <button class="carousel-control-next " type="button " data-bs-target="#carouselExampleCaptions " data-bs-slide="next">
+              <svg style="color: rgb(255, 72, 72); " xmlns="http://www.w3.org/2000/svg " width="36 " height="36 " fill="currentColor " class="bi bi-chevron-double-right " viewBox="0 0 16 16 ">
+                <path fill-rule="evenodd " d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z "/>
+                <path fill-rule="evenodd " d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z "/>
+              </svg>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ================== my blog  ============ -->
+
+    <div class="blog " id="blog ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-lg-12 ">
+                    <div data-aos-duration="500 " data-aos-delay="100 " data-aos-once="true " class="section-title text-center ">
+                        <span class="subtitle ">Visit my blog and keep your feedback</span>
+                        <h2 class="title ">My Blog</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <!-- vStart Single blog -->
+                {%for bl in blog%}
+                <div class="container col-lg-4 col-xl-3 col-md-6 col-12 blog--m ">
+                    <div class="row cours2 inner shadow-sm blog--box white-backgroud " style="overflow:hidden; ">
+
+                        <div class="text-center ">
+                            <div class=" ">
+                                <div class="thumbnail img--hover ">
+                                    <a href="{% url 'detailBlog' bl.id%}">
+                                        <img class="hover Portfolio_Images2 " src="{{bl.blog_pic.url}} ">
+                                    </a>
+                                </div>
+                                <div class="cours3 col-12 ">
+                                    <h4 class=" nav-link por--text ">{{bl.sub_blog}}</h4>
+                                </div>
+                                <div class="content ">
+                                    <div class="category-info m-lg-3 ">
+                                        <a href="{% url 'detailBlog' bl.id%}" class="nav-link text--text ">{{bl.name_blog}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cours4 col-12 text-center ">
+                            <a href="{% url 'detailBlog' bl.id%}" class=" nav-link cou ">View More</a>
+                        </div>
+                    </div>
+                </div>{%endfor%}
+                <!-- End Single blog -->
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ================== my pricing ============ -->
+
+    <div class="pricing " id="pricing ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-lg-4 col-xl-5 " style="z-index: 1; ">
+                    <div class=" d-lg-flex text-center d-lg-left section-flex flex-wrap align-content-start h-100 ">
+                        <div class="position-sticky sticky-top rbt-sticky-top-adjust ">
+                            <div class="section-title text-left ">
+                                <span class="subtitle text-center text-lg-left ">Pricing</span>
+                                <h2 class="title text-center text-lg-left ">My Pricing</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-xl-7 ">
+                    <div class="sticky ">
+                        <ul class="nav nav-tabs " id="myTab " role="tablist ">
+
+                            <li class="nav-item " role="presentation ">
+                                <button class="nav-link " id="static-tab " data-bs-toggle="tab" data-bs-target="#static" type="button " role="tab" aria-controls="static" aria-selected="false ">static</button>
+                            </li>
+                            <li class="nav-item " role="presentation ">
+                                <button class="nav-link " id="standard-tab" data-bs-toggle="tab" data-bs-target="#standard" type="button " role="tab" aria-controls="standard" aria-selected="false ">Standard</button>
+                            </li>
+                            <li class="nav-item " role="presentation ">
+                                <button class="nav-link " id="premium-tab" data-bs-toggle="tab" data-bs-target="#premium" type="button " role="tab" aria-controls="premium" aria-selected=" false ">Premium</button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content " id="myTabContent">
+
+                        <div class="tab-pane fade show active white-backgroud " id="static" role="tabpanel " aria-labelledby="static-tab ">
+                            <div class="rn-pricing shadow-sm p-5 ">
+                                <div class="pricing-header ">
+                                    <div class="header-left ">
+                                        <h2 class="title ">Design Make this Page</h2>
+                                        <span>Elementor</span>
+                                    </div>
+                                    <div class="dollar_icon shadow-sm ">
+                                        <span>$50.00</span>
+                                    </div>
+                                </div>
+                                <div class="pricing-body ">
+                                    <p class="description p-3 m-4 ">
+                                        Making this the first true generator on the Internet. It uses a dictionary & plugin Development.
+                                    </p>
+                                    <div class="check-wrapper row ">
+                                        <div class="left-area col-md-6 ">
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <span><p>1 Page with Elementor</p></span>
+
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Design Customization</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Responsive Design</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Content Upload</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Design Customization</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>2 Plugins/Extensions</p>
+                                            </div>
+                                        </div>
+                                        <div class="right-area col-md-6 ">
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>multipage Elementor</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Design Figma</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>MAintaine Design</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Content Upload</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Design With XD</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>8 Plugins/Extensions</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pricing-footer text-center ">
+                                    <a href="# " class=" nav-link shadow-sm oder p-2 ">
+                                        <span>ORDER NOW</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-arrow-right-circle " viewBox="0 0 16 16 ">
+                                            <path fill-rule="evenodd " d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293
+                                    7.5H4.5z "/>
+                                          </svg>
+                                    </a>
+                                    <div class=" d-plex ">
+                                        <div class="text-center p-4 ">
+                                            <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-clock-history " viewBox="0 0 16 16 ">
+                                                <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025
+                                    0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023
+                                    7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952
+                                    2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
+                                                <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z "/>
+                                                <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z "/>
+                                              </svg>
+                                            <span>2 Weeks Delivery</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <style>
+                                .oder {
+                                    background-color: rgb(255, 45, 80);
+                                    border-radius: 5px;
+                                    color: white;
+                                }
+                                
+                                .oder:hover {
+                                    color: red;
+                                    background-color: aliceblue;
+                                }
+                                
+                                .bi-arrow-right-circle {
+                                    opacity: 0;
+                                }
+                                
+                                .oder:hover .bi-arrow-right-circle {
+                                    cursor: pointer;
+                                    transition: .5s;
+                                    opacity: 1;
+                                }
+                                
+                                .oder:hover .bi-arrow-right-circle {
+                                    color: rgb(255, 8, 8);
+                                    margin-left: 2rem;
+                                }
+                                
+                                .check p {
+                                    margin-left: 1rem;
+                                }
+                                
+                                .dollar_icon {
+                                    float: right;
+                                    position: relative;
+                                    color: rgb(255, 43, 78);
+                                    font-size: 20px;
+                                }
+                            </style>
+                            <!-- End -->
+                        </div>
+                        <div class="tab-pane fade white-backgroud " id="standard" role="tabpanel " aria-labelledby="standard-tab ">
+                            <div class="rn-pricing shadow-sm p-5 ">
+                                <div class="pricing-header ">
+                                    <div class="header-left ">
+                                        <h2 class="title ">Design Make this Page</h2>
+                                        <span>Elementor</span>
+                                    </div>
+                                    <div class="dollar_icon shadow-sm ">
+                                        <span>$60.00</span>
+                                    </div>
+                                </div>
+                                <div class="pricing-body ">
+                                    <p class="description p-3 m-4 ">
+                                        Making this the first true generator on the Internet. It uses a dictionary & plugin Development.
+                                    </p>
+                                    <div class="check-wrapper row ">
+                                        <div class="left-area col-md-6 ">
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <span><p>1 Page with Elementor</p></span>
+
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Design Customization</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Responsive Design</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Content Upload</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Design Customization</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>2 Plugins/Extensions</p>
+                                            </div>
+                                        </div>
+                                        <div class="right-area col-md-6 ">
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>multipage Elementor</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Design Figma</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>MAintaine Design</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Content Upload</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Design With XD</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>8 Plugins/Extensions</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pricing-footer text-center ">
+                                    <a href="# " class=" nav-link shadow-sm oder p-2 ">
+                                        <span>ORDER NOW</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-arrow-right-circle " viewBox="0 0 16 16 ">
+                                            <path fill-rule="evenodd " d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293
+                                    7.5H4.5z "/>
+                                          </svg>
+                                    </a>
+                                    <div class=" d-plex ">
+                                        <div class="text-center p-4 ">
+                                            <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-clock-history " viewBox="0 0 16 16 ">
+                                                <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025
+                                    0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023
+                                    7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952
+                                    2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
+                                                <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z "/>
+                                                <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z "/>
+                                              </svg>
+                                            <span>2 Weeks Delivery</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- End -->
+                        </div>
+                        <div class="tab-pane fade white-backgroud " id="premium" role="tabpanel" aria-labelledby="premium-tab ">
+                            <div class="rn-pricing shadow-sm p-5 ">
+                                <div class="pricing-header ">
+                                    <div class="header-left ">
+                                        <h2 class="title ">Design Make this Page</h2>
+                                        <span>Elementor</span>
+                                    </div>
+                                    <div class="dollar_icon shadow-sm ">
+                                        <span>$80.00</span>
+                                    </div>
+                                </div>
+                                <div class="pricing-body ">
+                                    <p class="description p-3 m-4 ">
+                                        Making this the first true generator on the Internet. It uses a dictionary & plugin Development.
+                                    </p>
+                                    <div class="check-wrapper row ">
+                                        <div class="left-area col-md-6 ">
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <span><p>1 Page with Elementor</p></span>
+
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Design Customization</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Responsive Design</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Content Upload</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Design Customization</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>2 Plugins/Extensions</p>
+                                            </div>
+                                        </div>
+                                        <div class="right-area col-md-6 ">
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>multipage Elementor</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Design Figma</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>MAintaine Design</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Content Upload</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>Design With XD</p>
+                                            </div>
+                                            <div class="check d-flex ">
+                                                <svg xmlns="http://www.w3.org/2000/svg " width="26 " height="26 " fill="currentColor " class="bi bi-check2 " viewBox="0 0 16 16 ">
+                                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z "/>
+                                                  </svg>
+                                                <p>8 Plugins/Extensions</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pricing-footer text-center ">
+                                    <a href="# " class=" nav-link shadow-sm oder p-2 ">
+                                        <span>ORDER NOW</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-arrow-right-circle " viewBox="0 0 16 16 ">
+                                            <path fill-rule="evenodd " d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293
+                                    7.5H4.5z "/>
+                                          </svg>
+                                    </a>
+                                    <div class=" d-plex ">
+                                        <div class="text-center p-4 ">
+                                            <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-clock-history " viewBox="0 0 16 16 ">
+                                                <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025
+                                    0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023
+                                    7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952
+                                    2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
+                                                <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z "/>
+                                                <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z "/>
+                                              </svg>
+                                            <span>2 Weeks Delivery</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End -->
+        </div>
+    </div>
+    {%for profi in profile%}
+    <!-- ================== my contect  ============ -->
+    <div class="contact " id="contact ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-lg-12 ">
+                    <div class="section-title text-center ">
+                        <span class="subtitle ">Contact</span>
+                        <h2 class="title ">Contact With Me</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col-lg-5 ">
+
+                    <div class=" ">
+                        <div class=" ">
+
+                            <img src="{{profi.profile_pic.url}} " style="width: 350px; height: 150px; object-fit: cover; margin:0 auto; border-radius: 5px; " alt="Personal Portfolio Images ">
+                        </div>
+                        <div class=" ">
+                            <h4 class=" ">{{profi.location}}</h4>
+                            <span>Chief Operating Officer</span>
+                        </div>
+                        <div class="description ">
+                            <p>{{profi.explain_me}}
+                            </p>
+                            <span class="phone ">Phone: <a href="tel:01941043264 ">+{{profi.phone}}</a></span>
+                            <span class="mail ">Email: <a href="mailto:admin@example.com ">{{profi.email}}</a></span>
+                        </div>
+                        <div class="social-area ">
+                            <div class="name ">FIND WITH ME</div>
+                            <div class="social-icone ">
+                                <ul class="nav me-auto mb-2 mb-lg-0 ">
+                                    <li class="nav-item ">
+                                        <a class="nav-link " aria-current="page " href="https://www.facebook.com/houa.odx "><i class="fa-brands fa-facebook logo--me logo--footer "></i></a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link " aria-current="page " href="# "><i class="fa-brands fa-whatsapp logo--me logo--footer "></i></a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link " href="# "><i class="fa-brands fa-instagram logo--me logo--footer "></i></a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link " href="# "><svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-tiktok " viewBox="0 0 16 16 ">
+                                            <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z "/>
+                                          </svg></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div data-aos-delay="600 " class="col-lg-7 white-backgroud ">
+
+                    <div class="introduce ">
+                        <form class="row " id="contact-form " method="POST " action=" ">
+
+                            <div class="col-lg-6 ">
+                                <div class="form-group ">
+                                    <label for="contact-name ">Your Name</label>
+                                    <input class="form-control " name="contact-name " id="contact-name " type="text ">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 ">
+                                <div class="form-group ">
+                                    <label for="contact-phone ">Phone Number</label>
+                                    <input class="form-control " name="contact-phone " id="contact-phone " type="text ">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 ">
+                                <div class="form-group ">
+                                    <label for="contact-email ">Email</label>
+                                    <input class="form-control form-control-sm " id="contact-email " name="contact-email " type="email ">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 ">
+                                <div class="form-group ">
+                                    <label for="subject ">subject</label>
+                                    <input class="form-control form-control-sm " id="subject " name="subject " type="text ">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 ">
+                                <div class="form-group ">
+                                    <label for="contact-message ">Your Message</label>
+                                    <textarea class="form-control form-control-sm " name="contact-message " id="contact-message " cols="53 " rows="6 "></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 ">
+                                <button name="submit " type="submit " id="submit " class="rn-btn send--form ">
+                                    <span>Send</span>
+                                    <i data-feather="arrow-right "></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container section-title ">
+        <div class="row ">
+            <div class="col-lg-12 ">
+                <div class="footer-area text-center ">
+
+                    <div class="logo ">
+                        <a href="index.html ">
+                            <img src="{{profi.profile_pic.url}} " alt="logo " class="footer--logo ">
+                        </a>
+                    </div>
+
+                    <p class="description mt--30 ">© 2022. All rights reserved by
+                        <a target="_blank " href="https://www.facebook.com/houa.odx ">JacoB</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12 "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script>
+    <script src="{% static 'js/main.js' %} "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+</body>
