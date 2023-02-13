@@ -50,15 +50,18 @@ def detail(request,id):
     blog=Blog.objects.filter(id=id)
     award=Award.objects.filter(id=id)
     detai=get_object_or_404(I_do,id=id)
- 
     
 
+    profile=Profile.objects.all()[:1]
+ 
     return render(request,"detail.html",{
         'detail':detai,
         'port':port,
         'skill':skill,
         'blog':blog,
         'award':award,
+        'profile':profile
+
        
     })
 

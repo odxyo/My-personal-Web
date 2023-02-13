@@ -1,13 +1,13 @@
-let navigation = document.querySelector('.navigation');
-let nav_bar = document.querySelector('.nav--bar');
-document.querySelector('.toggle').onclick = function() {
-    this.classList.toggle('active');
-    navigation.classList.toggle('active');
-}
-document.querySelectorAll('.nav--bar').onclick = function() {
-    this.classList.toggle('active');
-    navigation.classList.toggle('active');
-}
+// let navigation = document.querySelector('.navigation');
+// let nav_bar = document.querySelector('.nav--bar');
+// document.querySelector('.toggle').onclick = function() {
+//     this.classList.toggle('active');
+//     navigation.classList.toggle('active');
+// }
+// document.querySelectorAll('.nav--bar').onclick = function() {
+//     this.classList.toggle('active');
+//     navigation.classList.toggle('active');
+// }
 
 
 const text = document.querySelector(".auto-type");

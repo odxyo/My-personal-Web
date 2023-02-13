@@ -29,8 +29,8 @@
 
     <!--  header  -->
     {%for profi in profile%}
-    <nav class="navbar navbar-expand-lg navbar-light navbar_fix   shadow-sm" style="z-index: 100;">
-        <div class="container-fluid  menu-context">
+    <nav class="nav navbar-expand-lg navbar-light navbar_fix   shadow-sm" style="z-index: 100;">
+        <div class=" navbar container-fluid  menu-context">
             <a class="navbar-brand" href="#contact"><img src="{{profi.profile_pic.url}} " alt="image " class="profile_img ">
                 <div class="dube">
 
@@ -54,28 +54,32 @@
                         <a class="nav-link logo--me " href="# "><i class="fa-brands fa-instagram "></i></a>
                     </li>
                 </ul>
-                <div class="toggle ">
-                    <button class="navbar-toggler " type="button " data-bs-toggle="collapse " data-bs-target="#navbarSupportedContent " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
+                <div>
+                    <!-- <button class="navbar-toggler " type="button " data-bs-toggle="collapse " data-bs-target="#navbarSupportedContent " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
                 <span class="navbar-toggler-icon "></span>
-               </button>
+               </button> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" id="listMenu" width="36" height="36" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+              </svg>
                 </div>
+            </a>
         </div>
-        <a href="#">
-            <marquee class="box_marquee" behavior="" direction="right">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti</marquee>
-        </a>
-        <div class="navigation">
+        <!-- <a href="#">
+            <marquee class="box_marquee" behavior="" direction="right"><b>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti</b> </marquee>
+        </a> -->
+        <!-- <div class="navigation">
             <ul class="navbar-nav nav_contact nav-pills">
-                <li style="--i:0; " class="nav-item  ">
-                    <a class="nav-link btn nav-fill" href="#i_do ">I_Do</a>
+                <li style="--i:0; " class="nav-item nav--bar ">
+                    <a class="nav-link btn menu--link" href="#i_do">I_Do</a>
                 </li>
                 <li style="--i:2; " class="nav-item nav--bar ">
-                    <a class="nav-link btn menu--link " href="#portfolio ">Portfolio</a>
+                    <a class="nav-link btn menu--link " href="#portfolio">Portfolio</a>
                 </li>
                 <li style="--i:3; " class="nav-item nav--bar ">
-                    <a class="nav-link btn menu--link" href="#resume ">Resume</a>
+                    <a class="nav-link btn menu--link" href="#resume">Resume</a>
                 </li>
                 <li style="--i:4; " class="nav-item nav--bar ">
-                    <a class="nav-link btn menu--link" href="#pricing ">Pricing</a>
+                    <a class="nav-link btn menu--link" href="#pricing">Pricing</a>
                 </li>
                 <li style="--i:5; " class="nav-item nav--bar ">
                     <a class="nav-link btn menu--link" href="#blog">Blog</a>
@@ -87,9 +91,41 @@
                     <a class="nav-link btn menu--link" href="#contact">Award</a>
                 </li>
             </ul>
+        </div> -->
+
+        <div class="box_menu" id="box_menu">
+            <svg xmlns="http://www.w3.org/2000/svg" id="nav__close" width="36" height="36" fill="currentColor" class="bi bi-backspace-reverse m-4" viewBox="0 0 16 16">
+                <path d="M9.854 5.146a.5.5 0 0 1 0 .708L7.707 8l2.147 2.146a.5.5 0 0 1-.708.708L7 8.707l-2.146 2.147a.5.5 0 0 1-.708-.708L6.293 8 4.146 5.854a.5.5 0 1 1 .708-.708L7 7.293l2.146-2.147a.5.5 0 0 1 .708 0z"/>
+                <path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7.08a2 2 0 0 0 1.519-.698l4.843-5.651a1 1 0 0 0 0-1.302L10.6 1.7A2 2 0 0 0 9.08 1H2zm7.08 1a1 1 0 0 1 .76.35L14.682 8l-4.844 5.65a1 1 0 0 1-.759.35H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h7.08z"/>
+              </svg>
+
+            <ul class="navbar-nav ">
+                <li class="nav-item nav--bar">
+                    <a class="nav-link btn tee" href="#i_do">I_Do</a>
+                </li>
+                <li class="nav-item nav--bar">
+                    <a class="nav-link btn menu--link text-body-emphasis" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item nav--bar">
+                    <a class="nav-link btn menu--link text-body-emphasis" href="#resume">Resume</a>
+                </li>
+                <li class="nav-item nav--bar">
+                    <a class="nav-link btn menu--link text-body-emphasis" href="#pricing">Pricing</a>
+                </li>
+                <li class="nav-item nav--bar">
+                    <a class="nav-link btn " href="#blog">Blog</a>
+                </li>
+                <li class="nav-item nav--bar">
+                    <a class="nav-link btn menu--link" href="#contact">contect</a>
+                </li>
+                <li class="nav-item nav--bar">
+                    <a class="nav-link btn menu--link" href="#contact">Award</a>
+                </li>
+            </ul>
         </div>
 
     </nav>
+
     <!-- profile -->
     <div class="first text-center">
         <h1>HELLO! WELCOME TO MY PORTFOLIO</h1>
@@ -111,11 +147,9 @@
 
                     <a href="{%static 'img/monkey.jpg' %} "><img src="{{profi.profile_pic.url}} " alt="" class="rounded" style="margin-top: 6rem; "></a>
 
-
-
                     <br>
                     <br>
-                    <h1>Mr. JacoB</h1>
+                    <h1>{{profi.name}}</h1>
                     <span class="m-2 ">I am a</span>
                     <span class="auto-type "></span>
                     <div class="container--text "></div>
@@ -134,6 +168,16 @@
     {%endfor%}
 
     <style>
+        .bi-backspace-reverse {
+            position: sticky;
+            float: right;
+            display: none;
+        }
+        
+        .bi-list {
+            display: none;
+        }
+        
         .dube {
             /* width: 100%; */
             position: relative;
@@ -212,8 +256,47 @@
                 transform: translateY(-10px);
             }
         }
+        
+        @media only screen and (max-width: 900px) {
+            .box_menu {
+                position: fixed;
+                margin-left: 100rem;
+                width: 60%;
+                height: 100vh;
+                background-color: rgb(0, 0, 0, 0.9);
+                text-align: center;
+            }
+            .navbar-nav {
+                padding-top: 5rem;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .tee {
+                color: aliceblue;
+            }
+            .bi-list {
+                display: block;
+            }
+            .bi-backspace-reverse {
+                display: block;
+            }
+            .show_menu {
+                margin-left: 0;
+            }
+        }
     </style>
+    <script>
+        const navMenu = document.getElementById('box_menu'),
+            listMenu = document.getElementById('listMenu'),
+            navClose = document.getElementById('nav__close')
 
+        listMenu.addEventListener('click', () => {
+            navMenu.classList.add('show-menu')
+        });
+        navClose.addEventListener('click', () => {
+            navMenu.classList.remove('show-menu')
+        });
+    </script>
     <!-- what i do  -->
 
     <div class="container text-center " id="i_do">
@@ -612,7 +695,6 @@
             </div>
         </div>
     </div>
-
     <style>
         .progress-bar {
             background-color: var(--pink);
@@ -1351,10 +1433,13 @@
         </div>
     </div>
     {%endfor%}
+
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12 "></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script>
-    <script src="{% static 'js/main.js' %} "></script>
+    <!-- <script src="{% static 'js/main.js' %} "></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+
+</body>
 
 </body>

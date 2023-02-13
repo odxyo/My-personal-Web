@@ -142,7 +142,7 @@
             <div class="row ">
                 {%for por in port.all%}
                 <div class="container col-lg-4 col-xl-3 col-md-6 col-12 blog--m ">
-                    <div class="row cours2 inner shadow-sm blog--box white-backgroud " style="overflow:hidden; ">
+                    <div class="row cours2 inner shadow-sm blog--box white-backgroud box--hover" style="overflow:hidden; ">
                         <div class="text-center ">
 
                             <a href="{% url 'portfolio' por.id %}">
@@ -182,7 +182,7 @@
                     <!-- vStart Single blog -->
                     {%for bl in blog%}
                     <div class="container col-lg-4 col-xl-3 col-md-6 col-12 blog--m ">
-                        <div class="row cours2 inner shadow-sm blog--box white-backgroud " style="overflow:hidden; ">
+                        <div class="row cours2 inner shadow-sm blog--box white-backgroud box--hover" style="overflow:hidden; ">
 
                             <div class="text-center ">
                                 <div class=" ">
@@ -192,7 +192,7 @@
                                         </a>
                                     </div>
                                     <div class="cours3 col-12 ">
-                                        <h4 class=" nav-link por--text ">{{bl.explain_blog}}</h4>
+                                        <h4 class=" nav-link por--text ">{{bl.sub_blog}}</h4>
                                     </div>
                                     <div class="content ">
                                         <div class="category-info m-lg-3 ">
@@ -264,13 +264,11 @@
 
                 <div class="row">
                     <!-- Start Single Progressbar  -->
-
-
                     <div class="col-lg-6 col-md-6 col-12 ">
                         <div class="progress-wrapper">
                             <div class="content ">{%for sk in skill%}
                                 <!-- Start Single Progress Charts -->
-                                <div class="progress-charts ">
+                                <div class="progress-charts box--hover">
                                     <h6 class="heading heading-h6 ">{{sk.name_work_skill}}</h6>
                                     <div class="progress">
                                         <div class="progress-bar" data-wow-duration="0.5s " data-wow-delay=".3s " role="progressbar " style="width: 90% " aria-valuenow="85" aria-valuemin="0 " aria-valuemax="100 "><span class="percent-label ">{{sk.skill}}%</span></div>
@@ -280,20 +278,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-12  ">
+                    <!-- <div class="col-lg-6 col-md-6 col-12  ">
                         <div class="progress-wrapper ">
                             <div class="content ">
-                                <!-- Start Single Progress Charts -->
+                                Start Single Progress Charts
                                 <div class="progress-charts ">
                                     <h6 class="heading heading-h6 ">HTML</h6>
                                     <div class="progress ">
                                         <div class="progress-bar  " data-wow-duration="0.5s " data-wow-delay=".4s " role="progressbar " style="width: 85% " aria-valuenow="85 " aria-valuemin="0 " aria-valuemax="100 "><span class="percent-label ">85%</span></div>
                                     </div>
                                 </div>
-                                <!-- End Single Progress Charts -->
+                                End Single Progress Charts
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
 
 
@@ -373,6 +371,16 @@
             .img--slide {
                 width: 20rem;
             }
+            
+            .box--hover:hover {
+                animation: box_hover 1s;
+            }
+            
+            @keyframes box_hover {
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
         </style>
 
 
@@ -396,7 +404,7 @@
                     <div class="col-lg-5 ">
                         <div class=" ">
                             <div class=" ">
-                                <img src="img/profile.jpg " style="width: 350px; height: 150px; object-fit: cover; margin:0 auto; border-radius: 5px; " alt="Personal Portfolio Images ">
+                                <img src="#" style="width: 350px; height: 150px; object-fit: cover; margin:0 auto; border-radius: 5px; " alt="Personal Portfolio Images ">
 
                             </div>
                             <div class=" ">

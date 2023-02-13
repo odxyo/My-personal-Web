@@ -581,7 +581,8 @@ marquee {
     border-radius: 5px;
 }
 
-@media only screen and (max-width: 900px) {
+
+/* @media only screen and (max-width: 900px) {
     .menu-context {
         width: 100%;
     }
@@ -634,4 +635,4 @@ marquee {
     .cours3 {
         padding-top: 47%;
     }
-}
+} */
