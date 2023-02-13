@@ -202,6 +202,17 @@
             /* filter: blur(20px); */
             /* box-shadow: 0 0 120px rgb(255, 5, 0.5), 0 0 200px rgb(255, 5, 0.7), 0 0 300px rgb(255, 5, 1), 0 0 400px rgb(255, 5, .2), 0 0 500px rgb(255, 5, 1.5); */
         }
+        
+        .box--hover:hover {
+            animation: box_hover 2s;
+            /* background-color: aqua; */
+        }
+        
+        @keyframes box_hover {
+            50% {
+                transform: translateY(-10px);
+            }
+        }
     </style>
 
     <!-- what i do  -->
@@ -215,11 +226,11 @@
                 </div>
             </div>
         </div>
-        <div class="text-center row box--ido">
+        <div class="text-center row box--ido ">
             <!-- start -->{%for p in i_do%}
-            <div class="col-lg-5 col-xl-4 col-md-6 col-13 p-4 ">
+            <div class="col-lg-5 col-xl-4 col-md-6 col-13 p-4 box--hover">
                 <img style="width: 3rem; height: 3rem;object-fit: cover;margin-bottom: 1rem;" src="{{p.icons.url}}" alt="icon">
-                <div class="shadow-sm text-center white-backgroud">
+                <div class="shadow-sm text-center white-backgroud ">
                     <div class="inner rn-service ">
 
                         <div class="content wh--do">
