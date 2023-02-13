@@ -204,8 +204,7 @@
         }
         
         .box--hover:hover {
-            animation: box_hover 2s;
-            /* background-color: aqua; */
+            animation: box_hover 1s;
         }
         
         @keyframes box_hover {
@@ -268,7 +267,7 @@
         <div class="row ">
             {% for portl in port%}
             <div class="col-lg-4 col-xl-3 col-md-6 col-12 ">
-                <div class="inner shadow-sm cours2 white-backgroud" style="overflow:hidden; ">
+                <div class="inner shadow-sm cours2 white-backgroud box--hover" style="overflow:hidden; ">
                     <div class="text-center img--hover">
                         <a href="{% url 'portfolio' portl.id %}">
                             <img src="{{portl.port_pic.url}}" alt="Portfolio Images " class="Portfolio_Images2 hover">
@@ -336,7 +335,7 @@
                         <div data-aos-once="true " class=" col-md-6 educate_class">
                             <span class="subtitle ">2001-2003</span>
                             <h4 class="maintitle ">Education</h4>
-                            <div class=" shadow-sm m-3 p-1 resume--box white-backgroud">
+                            <div class=" shadow-sm m-3 p-1 resume--box white-backgroud box--hover">
                                 <div class="resume-single-list m-5 ">
                                     <div class="inner ">
                                         <div class="heading ">
@@ -353,7 +352,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class=" shadow-sm m-3 p-1 resume--box">
+                            <div class=" shadow-sm m-3 p-1 resume--box box--hover">
 
                                 <div class="resume-single-list m-5 ">
                                     <div class="inner ">
@@ -379,7 +378,7 @@
 
                             <span class="subtitle ">2001-2003</span>
                             <h4 class="maintitle ">JOB</h4>
-                            <div class=" shadow-sm m-3 p-1 resume--box">
+                            <div class=" shadow-sm m-3 p-1 resume--box box--hover">
                                 <div class="resume-single-list m-5 ">
                                     <div class="inner ">
                                         <div class="heading ">
@@ -396,7 +395,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class=" shadow-sm m-3 p-1 resume--box">
+                            <div class=" shadow-sm m-3 p-1 resume--box box--hover">
 
                                 <div class="resume-single-list m-5 ">
                                     <div class="inner ">
@@ -434,7 +433,7 @@
                     <div class="row ">
                         <!-- Start Single Progressbar  -->
                         {%for sk in skill%}
-                        <div class="col-lg-6 col-md-6 col-12 ">
+                        <div class="col-lg-6 col-md-6 col-12 box--hover">
                             <div class="progress-wrapper ">
                                 <div class="content ">
                                     <!-- Start Single Progress Charts -->
@@ -529,7 +528,7 @@
                             <span class="subtitle ">2001-2003</span>
                             <h4 class="maintitle ">Experience </h4>
                         </div>
-                        <div class=" shadow-sm m-3 p-1 resume--box  ">
+                        <div class=" shadow-sm m-3 p-1 resume--box  box--hover">
                             <div class="resume-single-list m-5 ">
                                 <div class="inner ">
                                     <div class="heading ">
@@ -546,7 +545,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class=" shadow-sm m-3 p-1 resume--box">
+                        <div class=" shadow-sm m-3 p-1 resume--box box--hover">
                             <div class="resume-single-list m-5 ">
                                 <div class="inner ">
                                     <div class="heading ">
@@ -574,7 +573,7 @@
                             <span class="subtitle ">2001-2003</span>
                             <h4 class="maintitle ">Interview</h4>
                         </div>
-                        <div class=" shadow-sm m-3 p-1 resume--box">
+                        <div class=" shadow-sm m-3 p-1 resume--box box--hover">
                             <div class="resume-single-list m-5 ">
                                 <div class="inner ">
                                     <div class="heading ">
@@ -591,7 +590,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class=" shadow-sm m-3 p-1 resume--box">
+                        <div class=" shadow-sm m-3 p-1 resume--box box--hover">
                             <div class="resume-single-list m-5 ">
                                 <div class="inner ">
                                     <div class="heading ">
@@ -751,7 +750,7 @@
                 <!-- vStart Single blog -->
                 {%for bl in blog%}
                 <div class="container col-lg-4 col-xl-3 col-md-6 col-12 blog--m ">
-                    <div class="row cours2 inner shadow-sm blog--box white-backgroud " style="overflow:hidden; ">
+                    <div class="row cours2 inner shadow-sm blog--box white-backgroud box--hover" style="overflow:hidden; ">
 
                         <div class="text-center ">
                             <div class=" ">
