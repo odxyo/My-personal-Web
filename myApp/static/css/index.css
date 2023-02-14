@@ -61,7 +61,6 @@ i {
 .nav--bar:hover {
     border: 1px solid var(--pink);
     color: var(--pink);
-    background-color: var(--pink);
     border-radius: 5px;
 }
 
