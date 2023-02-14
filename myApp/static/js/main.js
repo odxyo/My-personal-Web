@@ -14,7 +14,6 @@ const text = document.querySelector(".auto-type");
 const textload = () => {
     setTimeout(() => {
         text.textContent = "Youtube";
-
     }, 0)
     setTimeout(() => {
         text.textContent = "Developer";
