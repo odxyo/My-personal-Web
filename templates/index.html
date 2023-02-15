@@ -27,7 +27,6 @@
 
 <body>
 
-    <!--  header  -->
     {%for profi in profile%}
     <nav class="nav navbar-expand-lg navbar-light navbar_fix   shadow-sm" style="z-index: 100;">
         <div class="navbar container-fluid ">
@@ -70,15 +69,15 @@
                 <path d="M9.854 5.146a.5.5 0 0 1 0 .708L7.707 8l2.147 2.146a.5.5 0 0 1-.708.708L7 8.707l-2.146 2.147a.5.5 0 0 1-.708-.708L6.293 8 4.146 5.854a.5.5 0 1 1 .708-.708L7 7.293l2.146-2.147a.5.5 0 0 1 .708 0z"/>
                 <path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7.08a2 2 0 0 0 1.519-.698l4.843-5.651a1 1 0 0 0 0-1.302L10.6 1.7A2 2 0 0 0 9.08 1H2zm7.08 1a1 1 0 0 1 .76.35L14.682 8l-4.844 5.65a1 1 0 0 1-.759.35H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h7.08z"/>
               </svg>
-            <ul class="navbar-nav" id="menu2" onclick="menu(this)">
+            <ul class="navbar-nav" role="menubar">
                 <li class=" nav-item ">
-                    <a class="btn tee " href="#i_do ">I_Do</a>
+                    <a class=" btn tee " href="#i_do">I_Do</a>
                 </li>
                 <li class="nav-item ">
                     <a class=" btn tee " href="#portfolio ">Portfolio</a>
                 </li>
                 <li class="nav-item ">
-                    <a class=" btn tee " href="#pricing ">Pricing</a>
+                    <a class=" btn tee" href="#pricing ">Pricing</a>
                 </li>
                 <li class="nav-item ">
                     <a class="btn tee " href="#resume ">Resume</a>
@@ -89,13 +88,15 @@
                 <li class="nav-item ">
                     <a class=" btn tee " href="#contact ">contect</a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item " role="none">
                     <a class=" btn tee " href="#contact ">Award</a>
                 </li>
             </ul>
         </div>
 
     </nav>
+    </div>
+
 
     <!-- profile -->
     <div class="first text-center ">
@@ -123,7 +124,7 @@
                     <h1>{{profi.name}}</h1>
                     <span class="m-2 ">I am a</span>
                     <span class="auto-type "></span>
-                    <div class="container--text"></div>
+                    <div class="container--text "></div>
 
                     <div class="mb-4 cont--mebox ">
                         <br>
@@ -139,6 +140,11 @@
     {%endfor%}
 
     <style>
+        .tee:is(:link, :active, :visited).active {
+            background-color: rgb(248, 52, 189);
+            color: white;
+        }
+        
         .nav--bar:focus {
             background-color: var(--pink);
         }
@@ -280,6 +286,10 @@
         .show_menu {
             margin-left: 0;
         }
+        
+        .menu_color {
+            background: red;
+        }
     </style>
     <script>
         const navMenu = document.getElementById('box_menu'),
@@ -292,19 +302,21 @@
         navClose.addEventListener('click', () => {
             navMenu.classList.remove('show_menu')
         });
+        // const activePage = window.location.pathname;
+        // const navLinks = document.querySelectorAll('.tee').forEach(link => {
+        //     if (link.href.includes(`${activePage}`)) {
+        //         link.classList.add('active');
+        //         console.log(link);
+        //     }
+        // });
+        const list = document.querySelectorAll('.tee');
 
-        function menu(elem) {
-            var box1 = document.getElementById("ido");
-            var box2 = document.getElementById("menu2");
-
-            if (elem.id == "ido") {
-                box1.style.background = "red ";
-            } else if (elem.id == "yes") {
-                box1.style.backgroundColor = "green";
-            } else {
-                box1.style.backgroundColor = "purple";
-            };
+        function activeLink() {
+            list.forEach((item) =>
+                item.classList.remove('active'));
+            this.classList.add('active')
         }
+        list.forEach((item) => item.addEventListener('click', activeLink));
     </script>
     <!-- what i do  -->
 
@@ -318,7 +330,8 @@
             </div>
         </div>
         <div class="text-center row box--ido ">
-            <!-- start -->{%for p in i_do%}
+            <!-- start -->
+            {%for p in i_do%}
             <div class="col-lg-5 col-xl-4 col-md-6 col-13 p-4 box--hover ">
                 <img style="width: 3rem; height: 3rem;object-fit: cover;margin-bottom: 1rem; " src="{{p.icons.url}} " alt="icon ">
                 <div class="shadow-sm text-center white-backgroud ">
@@ -346,7 +359,7 @@
 
     <!--  Portfolio-->
 
-    <div class="container portfolio " id="portfolio ">
+    <div class="container portfolio " id="portfolio">
         <div class="row ">
             <div class="col-lg-12 ">
                 <div class="section-title text-center ">
@@ -370,7 +383,7 @@
                         <div class="category-info m-lg-4 ">
 
                             <a href="{% url 'portfolio' portl.id %} " class="nav-link text--text ">{{portl.name_work}}</a>
-                            <a href="# "><i class="fa-regular fa-heart por--logo "></i></a>
+                            <a href="#"><i class="fa-regular fa-heart por--logo "></i></a>
                             <span>{{portl.like}}</span>
 
                         </div>
@@ -391,7 +404,7 @@
     <!--  resume  -->
     <br>
     <br>
-    <div class="container text-center resume " id="resume ">
+    <div class="container text-center resume " id="resume">
         <div class="row ">
             <div class="col-lg-12 ">
                 <div class="section-title text-center ">
@@ -498,8 +511,7 @@
 
                                             </div>
                                             <div class="date-of-time ">
-                                                <span>4.30$/1</span>
-                                            </div>
+                                                <span>4.30$/1</span> </div>
                                         </div>
                                         <br>
                                         <p class="description ">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
@@ -827,7 +839,7 @@
 
     <!-- ================== my blog  ============ -->
 
-    <div class="blog " id="blog ">
+    <div class="blog " id="blog">
         <div class="container ">
             <div class="row ">
                 <div class="col-lg-12 ">
@@ -873,7 +885,7 @@
 
     <!-- ================== my pricing ============ -->
 
-    <div class="pricing " id="pricing ">
+    <div class="pricing " id="pricing">
         <div class="container ">
             <div class="row ">
                 <div class="col-lg-4 col-xl-5 " style="z-index: 1; ">
@@ -1005,16 +1017,16 @@
                                         <span>ORDER NOW</span>
                                         <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-arrow-right-circle " viewBox="0 0 16 16 ">
                                             <path fill-rule="evenodd " d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293
-                7.5H4.5z "/>
+                    7.5H4.5z "/>
                                           </svg>
                                     </a>
                                     <div class=" d-plex ">
                                         <div class="text-center p-4 ">
                                             <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-clock-history " viewBox="0 0 16 16 ">
                                                 <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025
-                0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53
-                2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555
-                1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
+                    0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53
+                    2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555
+                    1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
                                                 <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z "/>
                                                 <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z "/>
                                               </svg>
@@ -1164,16 +1176,16 @@
                                         <span>ORDER NOW</span>
                                         <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-arrow-right-circle " viewBox="0 0 16 16 ">
                                             <path fill-rule="evenodd " d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293
-                7.5H4.5z "/>
+                    7.5H4.5z "/>
                                           </svg>
                                     </a>
                                     <div class=" d-plex ">
                                         <div class="text-center p-4 ">
                                             <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-clock-history " viewBox="0 0 16 16 ">
                                                 <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025
-                0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53
-                2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555
-                1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
+                    0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53
+                    2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555
+                    1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
                                                 <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z "/>
                                                 <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z "/>
                                               </svg>
@@ -1286,16 +1298,16 @@
                                         <span>ORDER NOW</span>
                                         <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-arrow-right-circle " viewBox="0 0 16 16 ">
                                             <path fill-rule="evenodd " d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293
-                7.5H4.5z "/>
+                    7.5H4.5z "/>
                                           </svg>
                                     </a>
                                     <div class=" d-plex ">
                                         <div class="text-center p-4 ">
                                             <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-clock-history " viewBox="0 0 16 16 ">
                                                 <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025
-                0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53
-                2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555
-                1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
+                    0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53
+                    2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555
+                    1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
                                                 <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z "/>
                                                 <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z "/>
                                               </svg>
@@ -1316,7 +1328,7 @@
     </div>
     {%for profi in profile%}
     <!-- ================== my contect  ============ -->
-    <div class="contact " id="contact ">
+    <div class="contact " id="contact">
         <div class="container ">
             <div class="row ">
                 <div class="col-lg-12 ">
