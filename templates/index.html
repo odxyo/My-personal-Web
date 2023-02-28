@@ -78,21 +78,23 @@
                 <li class="nav-item ">
                     <a class=" btn tee " href="#portfolio ">Portfolio</a>
                 </li>
-                <li class="nav-item ">
-                    <a class=" btn tee" href="#pricing">Pricing</a>
-                </li>
+
                 <li class="nav-item ">
                     <a class="btn tee " href="#resume ">Resume</a>
                 </li>
+                <!-- <li class="nav-item " role="none">
+                    <a class=" btn tee " href="#award">Award</a>
+                </li> -->
                 <li class="nav-item ">
                     <a class=" btn tee " href="#blog ">Blog</a>
                 </li>
                 <li class="nav-item ">
+                    <a class=" btn tee" href="#pricing">Pricing</a>
+                </li>
+                <li class="nav-item ">
                     <a class=" btn tee " href="#contact ">contect</a>
                 </li>
-                <li class="nav-item " role="none">
-                    <a class=" btn tee " href="#contact ">Award</a>
-                </li>
+
             </ul>
         </div>
 
@@ -143,7 +145,6 @@
 
     <style>
         .tee:is(:link, :active, :visited).active {
-            /* background-color: rgb(255, 255, 255) !important; */
             color: rgb(237, 78, 110) !important;
             border-bottom: 2px solid rgb(237, 78, 110) !important;
         }
@@ -215,7 +216,6 @@
             left: 0;
             width: 20%;
             height: 20%;
-            /* background-image: url("img/mani.jpg "); */
             background: linear-gradient(rgb(7, 7, 7), rgb(255, 60, 60));
             transform: rotateY(calc(50deg * var(--o))) translateZ(30px);
         }
@@ -227,8 +227,6 @@
             width: 10px;
             height: 30px;
             background-image: url("img/mani.jpg ");
-            /* transform: translateZ(200px); */
-            /* background: blue; */
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -247,8 +245,6 @@
             background-repeat: no-repeat;
             background-size: cover;
             border-radius: 4px;
-            /* filter: blur(20px); */
-            /* box-shadow: 0 0 120px rgb(255, 5, 0.5), 0 0 200px rgb(255, 5, 0.7), 0 0 300px rgb(255, 5, 1), 0 0 400px rgb(255, 5, .2), 0 0 500px rgb(255, 5, 1.5); */
         }
         
         .box--hover:hover {
@@ -261,7 +257,7 @@
             }
         }
         
-        @media only screen and (max-width: 900px) {
+        @media only screen and (max-width: 992px) {
             .box_menu {
                 position: fixed;
                 margin-left: -100rem;
@@ -288,6 +284,39 @@
             .bi {
                 display: block;
             }
+            .box--ido {}
+        }
+        
+        @media only screen and (max-width: 912px) {
+            .box_menu {
+                position: fixed;
+                margin-left: -100rem;
+                width: 60%;
+                height: 100vh;
+                background-color: rgb(0, 0, 0, 0.9);
+                text-align: center;
+                transition: 1s;
+            }
+            .navbar-nav {
+                padding-top: 5rem;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .tee {
+                color: aliceblue;
+            }
+            .tee:hover {
+                color: rgb(255, 45, 160);
+            }
+            .bi-list {
+                display: block;
+            }
+            .bi {
+                display: block;
+            }
+            .box--ido {
+                margin-left: 0;
+            }
         }
         
         .show_menu {
@@ -306,7 +335,60 @@
         .icon--cancel svg:hover {
             margin-top: -.7rem;
         }
-        /* max min 900 */
+        
+        @media only screen and (max-width:820px) {
+            .fa-brands {
+                font-size: 40px;
+            }
+            .tee {
+                font-size: 25px;
+            }
+            .rounded {
+                width: 30rem;
+                height: 30rem;
+            }
+            /* profolio */
+            .Portfolio_Images2 {
+                border-radius: 4px;
+            }
+            .img--hover {
+                width: 300px;
+                height: 210px;
+            }
+            .category-info {
+                margin-left: 1rem;
+                margin-top: 3rem;
+            }
+            .logo_like {
+                font-size: 30px;
+            }
+            .value_like {
+                margin-right: 2rem;
+            }
+            /* blog */
+            .blog--box {
+                margin-bottom: 2rem;
+            }
+            .por--text {
+                font-size: 30px;
+            }
+        }
+        
+        @media only screen and (max-width:412px) {
+            .fa-brands {
+                font-size: 20px;
+            }
+            .tee {
+                font-size: 15px;
+            }
+            .rounded {
+                width: 20rem;
+                height: 20rem;
+            }
+            .resum--tab {
+                font-size: 18px;
+            }
+        }
     </style>
     <script>
         const navMenu = document.getElementById('box_menu'),
@@ -322,13 +404,7 @@
         });
 
 
-        // const activePage = window.location.pathname;
-        // const navLinks = document.querySelectorAll('.tee').forEach(link => {
-        //     if (link.href.includes(`${activePage}`)) {
-        //         link.classList.add('active');
-        //         console.log(link);
-        //     }
-        // });
+
         const list = document.querySelectorAll('.tee');
 
         function activeLink() {
@@ -349,7 +425,7 @@
                 </div>
             </div>
         </div>
-        <div class="text-center row box--ido ">
+        <div class="text-center row  ">
             <!-- start -->
             {%for p in i_do%}
             <div class="col-lg-5 col-xl-4 col-md-6 col-13 p-4 box--hover ">
@@ -359,7 +435,7 @@
 
                         <div class="content wh--do ">
                             <h4 class="title ">
-                                <a href="{%url 'detail' p.id%} " id="do-name" class="nav-link por--text pt-3 ">{{p.job_name}}</a>
+                                <a href="{%url 'detail' p.job_name%} " id="do-name" class="nav-link por--text pt-3 ">{{p.job_name}}</a>
                             </h4>
                             <p class="drt p-3 ">{{p.job_dsp}}</p>
                         </div>
@@ -401,11 +477,8 @@
                     <div class=" ">
 
                         <div class="category-info m-lg-4 ">
-
                             <a href="{% url 'portfolio' portl.id %} " class="nav-link text--text ">{{portl.name_work}}</a>
-                            <a href="#"><i class="fa-regular fa-heart por--logo "></i></a>
-                            <span>{{portl.like}}</span>
-
+                            <span class="value_like"><a href="#"><i class="fa-regular fa-heart logo_like"></i></a>{{portl.like}}</span>
                         </div>
                         <div class="cours4 col-12 text-center ">
                             <a href="{% url 'portfolio' portl.id %} " class="nav-link cou ">{{portl.title}}<i class="fa-solid fa-arrow-up "></i></a>
@@ -438,16 +511,16 @@
             <div class="sticky ">
                 <ul class="nav nav-tabs ">
                     <li class="nav-item nav-tabs " role="presentation ">
-                        <button class="nav-link " id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab" aria-controls="education ">Education</button>
+                        <button class="nav-link resum--tab" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab" aria-controls="education ">Education</button>
                     </li>
                     <li class="nav-item " role="presentation ">
-                        <button class="nav-link " id="skill-tab" data-bs-target="#skill" data-bs-toggle="tab" type="button " aria-controls="skill" aria-selected="false "> Skills</button>
+                        <button class="nav-link resum--tab" id="skill-tab" data-bs-target="#skill" data-bs-toggle="tab" type="button " aria-controls="skill" aria-selected="false "> Skills</button>
                     </li>
                     <li class="nav-item " role="presentation ">
-                        <button class="nav-link " id="experience-tab" data-bs-target="#experience" data data-bs-toggle="tab" type="button " aria-controls="experience " aria-selected="false ">Experience</button>
+                        <button class="nav-link resum--tab" id="experience-tab" data-bs-target="#experience" data data-bs-toggle="tab" type="button " aria-controls="experience " aria-selected="false ">Experience</button>
                     </li>
                     <li class="nav-item " role="presentation ">
-                        <button class="nav-link " id="interview-tab" data-bs-target="#interview" data-bs-toggle="tab" type="button " aria-controls="interview " aria-labelledby="false ">Interviews</button>
+                        <button class="nav-link resum--tab" id="interview-tab" data-bs-target="#interview" data-bs-toggle="tab" type="button " aria-controls="interview " aria-labelledby="false ">Interviews</button>
                     </li>
                 </ul>
             </div>
@@ -788,7 +861,7 @@
     </style>
 
     <!-- ==== Accomplishments and awards ===== -->
-    <div class="container text-center resume ">
+    <!-- <div class="container text-center resume " id="award">
         <div class="row ">
             <div class="col-lg-12 ">
                 <div class="section-title text-center ">
@@ -808,37 +881,16 @@
             </div>
             <div class="carousel-inner white-backgroud row ">
                 {%for aw in award%}
-                <div class="carousel-item ">
-                    <img src="{{aw.award_picture.url}} " class=" img--slide " alt="... ">
+                <div class="carousel-item {% if forloop.counter0 == 0 %}active {%endif%}">
+                    <img src="{{aw.award_picture.url}} " class=" img--slide" alt="... ">
                     <div class="carousel-caption d-none d-md-block ">
                         <h5> {{aw.award_title}}</h5>
                         <p>{{aw.award_explain}}</p>
                         <h4>{{aw.time}}</h4>
-                        <a href="# " class="nav-link shadow-sm oder p-2 ">View photos</a>
+                        <a href="# " class="nav-link shadow-sm oder p-2">View photos</a>
                     </div>
                 </div>
                 {%endfor%}
-                <!-- <div class="carousel-item active ">
-                    <img src="{%static 'img/durk.jpg'%} " class="img--slide " alt="... ">
-                    <div class="carousel-caption d-none d-md-block ">
-                        <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item ">
-                    <img src="{%static 'img/monkey.jpg'%} " class="img--slide " alt="... ">
-                    <div class="carousel-caption d-none d-md-block ">
-                        <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item ">
-                    <img src="{%static 'img/playguitar.jpg'%} " class="img--slide " alt="... ">
-                    <div class="carousel-caption d-none d-md-block ">
-                        <h5>fourth slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
-                    </div>
-                </div> -->
             </div>
             <button class="carousel-control-prev " type="button " data-bs-target="#carouselExampleCaptions " data-bs-slide="prev ">
         
@@ -854,7 +906,7 @@
               </svg>
             </button>
         </div>
-    </div>
+    </div> -->
 
 
     <!-- ================== my blog  ============ -->
@@ -872,9 +924,8 @@
             <div class="row ">
                 <!-- vStart Single blog -->
                 {%for bl in blog%}
-                <div class="container col-lg-4 col-xl-3 col-md-6 col-12 blog--m ">
+                <div class="col-lg-4 col-xl-3 col-md-6 col-12 ">
                     <div class="row cours2 inner shadow-sm blog--box white-backgroud box--hover " style="overflow:hidden; ">
-
                         <div class="text-center ">
                             <div class=" ">
                                 <div class="thumbnail img--hover ">
@@ -883,11 +934,11 @@
                                     </a>
                                 </div>
                                 <div class="cours3 col-12 ">
-                                    <h4 class=" nav-link por--text ">{{bl.sub_blog}}</h4>
+                                    <h4 class=" nav-link por--text">{{bl.sub_blog}}</h4>
                                 </div>
                                 <div class="content ">
                                     <div class="category-info m-lg-3 ">
-                                        <a href="{% url 'detailBlog' bl.id%} " class="nav-link text--text ">{{bl.name_blog}}</a>
+                                        <a href="{% url 'detailBlog' bl.id%} " class="nav-link text--text">{{bl.name_blog}}</a>
                                     </div>
                                 </div>
                             </div>

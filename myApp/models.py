@@ -17,7 +17,7 @@ class I_do(models.Model):
         return self.job_name
 
 class Portfolio(models.Model):
-    job_name=models.ForeignKey(I_do,null=True,blank=True, on_delete=models.CASCADE)
+    i_do=models.ForeignKey(I_do,null=True,blank=True, on_delete=models.CASCADE)
     name_work=models.CharField(max_length=200,null=True)
     title=models.CharField(max_length=200)
     like = models.IntegerField(default=0)
@@ -25,20 +25,19 @@ class Portfolio(models.Model):
     explain=models.TextField()
     
 class Skill(models.Model):
-    job_name = models.ForeignKey(I_do,null=True,blank=True,on_delete=models.CASCADE)
+    i_do = models.ForeignKey(I_do,null=True,blank=True,on_delete=models.CASCADE)
     name_work_skill = models.CharField(max_length=200)
     skill=models.IntegerField(default=0)
     
 class Blog(models.Model):
-    name_job=models.ForeignKey(I_do,null=True,blank=True,on_delete=models.CASCADE)
+    i_do=models.ForeignKey(I_do,null=True,blank=True,on_delete=models.CASCADE)
     name_blog=models.CharField(max_length=200,null=True)
     sub_blog=models.CharField(max_length=200)
     explain_blog=models.TextField()
-    
     blog_pic= models.ImageField(upload_to='media/picture')
 
 class Award(models.Model):
-    name_job=models.ForeignKey(I_do,null=True,blank=True,on_delete=models.CASCADE)
+    i_do=models.ForeignKey(I_do,null=True,blank=True,on_delete=models.CASCADE)
     award_title = models.CharField(max_length=500,null=True,blank=True)
     award_explain =models.TextField()
     time =models.DateField()

@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,re_path
 from .import views
 
 urlpatterns = [
@@ -8,7 +8,7 @@ urlpatterns = [
     path('detailBlog/<int:id>',views.detailBlog,name='detailBlog'),
 
     # detail
-    path('detail/<int:id>/',views.detail,name='detail'),
+    path('detail/<str:job_name>/',views.detail,name='detail'),
     # profile form
     path('profileForm/',views.profileForm,name='profileForm'),
 

@@ -42,16 +42,16 @@ def detailBlog(request,id):
         'detailBlog':detblog
     })
 
-
-def detail(request,id):
-    port = Portfolio.objects.filter(id=id)
+def detail(request,job_name):
+    detai=get_object_or_404(I_do,job_name=job_name)
+    if id==id:
+        port = Portfolio.objects.filter(job_name)
     # # skill
-    skill = Skill.objects.filter(id=id)
-    blog=Blog.objects.filter(id=id)
-    award=Award.objects.filter(id=id)
-    detai=get_object_or_404(I_do,id=id)
+        skill = Skill.objects.all()
+        blog=Blog.objects.all()
+        award=Award.objects.all()
     
-
+    
     profile=Profile.objects.all()[:1]
  
     return render(request,"detail.html",{
@@ -61,8 +61,6 @@ def detail(request,id):
         'blog':blog,
         'award':award,
         'profile':profile
-
-       
     })
 
 def login(request):
