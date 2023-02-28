@@ -26,8 +26,3 @@ const textload = () => {
 }
 textload()
 setInterval(textload, 12000);
-
-
-const menu = document.querySelector(".navigationa").onclick = () => {
-    menu.classList.toggle(".navigationap");
-}

@@ -25,7 +25,7 @@
     <title>My website</title>
 </head>
 
-<body>
+<body id="click_close">
 
     {%for profi in profile%}
     <nav class="nav navbar-expand-lg navbar-light navbar_fix   shadow-sm" style="z-index: 100;">
@@ -46,13 +46,13 @@
 
                 <ul class="nav me-auto mb-2 mb-lg-0 ">
                     <li class="nav">
-                        <a class="nav-link logo--me " aria-current="page " href="# "><i class="fa-brands fa-facebook "></i></a>
+                        <a class="nav-link logo--me " aria-current="page " href="#"><i class="fa-brands fa-facebook "></i></a>
                     </li>
                     <li class="nav ">
                         <a class="nav-link logo--me " aria-current="page " href="# "><i class="fa-brands fa-whatsapp "></i></a>
                     </li>
                     <li class="nav ">
-                        <a class="nav-link logo--me " href="# "><i class="fa-brands fa-instagram "></i></a>
+                        <a class="nav-link logo--me " href="#"><i class="fa-brands fa-instagram "></i></a>
                     </li>
                 </ul>
             </a>
@@ -65,10 +65,12 @@
         </div>
 
         <div class="box_menu" id="box_menu">
-            <svg xmlns="http://www.w3.org/2000/svg" style="color:aliceblue;" id="nav__close" width="36" height="36" fill="currentColor" class="bi bi-backspace-reverse m-4" viewBox="0 0 16 16">
-                <path d="M9.854 5.146a.5.5 0 0 1 0 .708L7.707 8l2.147 2.146a.5.5 0 0 1-.708.708L7 8.707l-2.146 2.147a.5.5 0 0 1-.708-.708L6.293 8 4.146 5.854a.5.5 0 1 1 .708-.708L7 7.293l2.146-2.147a.5.5 0 0 1 .708 0z"/>
-                <path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7.08a2 2 0 0 0 1.519-.698l4.843-5.651a1 1 0 0 0 0-1.302L10.6 1.7A2 2 0 0 0 9.08 1H2zm7.08 1a1 1 0 0 1 .76.35L14.682 8l-4.844 5.65a1 1 0 0 1-.759.35H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h7.08z"/>
-              </svg>
+            <div class="icon--cancel m-4">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="nav__close" width="27" height="27" fill=" currentColor " class="bi bi-x-lg" viewBox="0 0 16 16 ">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z "/>
+              </svg></a>
+            </div>
             <ul class="navbar-nav" role="menubar">
                 <li class=" nav-item ">
                     <a class=" btn tee " href="#i_do">I_Do</a>
@@ -77,7 +79,7 @@
                     <a class=" btn tee " href="#portfolio ">Portfolio</a>
                 </li>
                 <li class="nav-item ">
-                    <a class=" btn tee" href="#pricing ">Pricing</a>
+                    <a class=" btn tee" href="#pricing">Pricing</a>
                 </li>
                 <li class="nav-item ">
                     <a class="btn tee " href="#resume ">Resume</a>
@@ -141,8 +143,13 @@
 
     <style>
         .tee:is(:link, :active, :visited).active {
-            background-color: rgb(248, 52, 189);
-            color: white;
+            /* background-color: rgb(255, 255, 255) !important; */
+            color: rgb(237, 78, 110) !important;
+            border-bottom: 2px solid rgb(237, 78, 110) !important;
+        }
+        
+        .btn {
+            border: none;
         }
         
         .nav--bar:focus {
@@ -161,7 +168,7 @@
             border-radius: 5px;
         }
         
-        .bi-backspace-reverse {
+        .bi {
             position: sticky;
             float: right;
             display: none;
@@ -278,7 +285,7 @@
             .bi-list {
                 display: block;
             }
-            .bi-backspace-reverse {
+            .bi {
                 display: block;
             }
         }
@@ -290,11 +297,22 @@
         .menu_color {
             background: red;
         }
+        
+        .icon--cancel svg {
+            color: red;
+            transition: 1s;
+        }
+        
+        .icon--cancel svg:hover {
+            margin-top: -.7rem;
+        }
+        /* max min 900 */
     </style>
     <script>
         const navMenu = document.getElementById('box_menu'),
             listMenu = document.getElementById('listMenu'),
-            navClose = document.getElementById('nav__close')
+            navClose = document.getElementById('nav__close'),
+            navClosebody = document.getElementById('click_close')
 
         listMenu.addEventListener('click', () => {
             navMenu.classList.toggle('show_menu')
@@ -302,6 +320,8 @@
         navClose.addEventListener('click', () => {
             navMenu.classList.remove('show_menu')
         });
+
+
         // const activePage = window.location.pathname;
         // const navLinks = document.querySelectorAll('.tee').forEach(link => {
         //     if (link.href.includes(`${activePage}`)) {
@@ -339,7 +359,7 @@
 
                         <div class="content wh--do ">
                             <h4 class="title ">
-                                <a href="{%url 'detail' p.id%} " id="do-name " class="nav-link por--text pt-3 ">{{p.job_name}}</a>
+                                <a href="{%url 'detail' p.id%} " id="do-name" class="nav-link por--text pt-3 ">{{p.job_name}}</a>
                             </h4>
                             <p class="drt p-3 ">{{p.job_dsp}}</p>
                         </div>
@@ -418,23 +438,23 @@
             <div class="sticky ">
                 <ul class="nav nav-tabs ">
                     <li class="nav-item nav-tabs " role="presentation ">
-                        <button class="nav-link " id="education-tab " data-bs-toggle="tab " data-bs-target="#education " type="button " role="tab " aria-controls="education ">Education</button>
+                        <button class="nav-link " id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab" aria-controls="education ">Education</button>
                     </li>
                     <li class="nav-item " role="presentation ">
-                        <button class="nav-link " id="skill-tab " data-bs-target="#skill " data-bs-toggle="tab " type="button " aria-controls="skill " aria-selected="false "> Skills</button>
+                        <button class="nav-link " id="skill-tab" data-bs-target="#skill" data-bs-toggle="tab" type="button " aria-controls="skill" aria-selected="false "> Skills</button>
                     </li>
                     <li class="nav-item " role="presentation ">
-                        <button class="nav-link " id="experience-tab " data-bs-target="#experience " data data-bs-toggle="tab " type="button " aria-controls="experience " aria-selected="false ">Experience</button>
+                        <button class="nav-link " id="experience-tab" data-bs-target="#experience" data data-bs-toggle="tab" type="button " aria-controls="experience " aria-selected="false ">Experience</button>
                     </li>
                     <li class="nav-item " role="presentation ">
-                        <button class="nav-link " id="interview-tab " data-bs-target="#interview " data-bs-toggle="tab " type="button " aria-controls="interview " aria-labelledby="false ">Interviews</button>
+                        <button class="nav-link " id="interview-tab" data-bs-target="#interview" data-bs-toggle="tab" type="button " aria-controls="interview " aria-labelledby="false ">Interviews</button>
                     </li>
                 </ul>
             </div>
             <div class="row tab-content " id="myTabContent ">
                 <!-- .....--------------Education------------ -->
 
-                <div class="tabcontent tab-pane fade show active " id="education " role="tabpanel " aria-labelledby="education-tab ">
+                <div class="tabcontent tab-pane fade show active " id="education" role="tabpanel " aria-labelledby="education-tab ">
 
                     <div class="row " id="educate ">
                         <div data-aos-once="true " class=" col-md-6 educate_class ">
@@ -529,7 +549,7 @@
 
                 <!-- .....--------------skill------------ -->
 
-                <div class="tabcontent fade " id="skill " role="tabpanel " aria-labelledby="skill-tab ">
+                <div class="tabcontent fade " id="skill" role="tabpanel " aria-labelledby="skill-tab ">
                     <div id="skil "><span class="subtitle ">Features</span>
                         <h4>Design Skill</h4>
                     </div>
@@ -626,7 +646,7 @@
 
                 <!-- .....--------------experience------------ -->
 
-                <div class="tabcontent fade " id="experience " role="tabpanel " aria-labelledby="experience-tab " class=" col-md-6 col-12 ">
+                <div class="tabcontent fade " id="experience" role="tabpanel " aria-labelledby="experience-tab " class=" col-md-6 col-12 ">
                     <div class="eperience_animation ">
                         <div id="exper ">
                             <span class="subtitle ">2001-2003</span>
@@ -671,7 +691,7 @@
                 </div>
                 <!-- .....--------------interview ------------ -->
 
-                <div id="interview " class="tabcontent fade " role="tabpanel " aria-labelledby="interview-tab " class=" col-md-6 col-12 educate_class ">
+                <div id="interview" class="tabcontent fade " role="tabpanel " aria-labelledby="interview-tab" class=" col-md-6 col-12 educate_class ">
                     <div class="eperience_animation ">
                         <div id="inter ">
                             <span class="subtitle ">2001-2003</span>
@@ -904,20 +924,20 @@
                         <ul class="nav nav-tabs " id="myTab " role="tablist ">
 
                             <li class="nav-item " role="presentation ">
-                                <button class="nav-link " id="static-tab " data-bs-toggle="tab " data-bs-target="#static " type="button " role="tab " aria-controls="static " aria-selected="false ">static</button>
+                                <button class="nav-link " id="static-tab " data-bs-toggle="tab" data-bs-target="#static " type="button " role="tab " aria-controls="static " aria-selected="false ">static</button>
                             </li>
                             <li class="nav-item " role="presentation ">
-                                <button class="nav-link " id="standard-tab " data-bs-toggle="tab " data-bs-target="#standard " type="button " role="tab " aria-controls="standard " aria-selected="false ">Standard</button>
+                                <button class="nav-link " id="standard-tab " data-bs-toggle="tab" data-bs-target="#standard " type="button " role="tab " aria-controls="standard " aria-selected="false ">Standard</button>
                             </li>
                             <li class="nav-item " role="presentation ">
-                                <button class="nav-link " id="premium-tab " data-bs-toggle="tab " data-bs-target="#premium " type="button " role="tab " aria-controls="premium " aria-selected=" false ">Premium</button>
+                                <button class="nav-link " id="premium-tab " data-bs-toggle="tab" data-bs-target="#premium " type="button " role="tab " aria-controls="premium " aria-selected=" false ">Premium</button>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="tab-content " id="myTabContent ">
+                    <div class="tab-content " id="myTabContent">
 
-                        <div class="tab-pane fade show active white-backgroud " id="static " role="tabpanel " aria-labelledby="static-tab ">
+                        <div class="tab-pane fade show active white-backgroud " id="static" role="tabpanel " aria-labelledby="static-tab ">
                             <div class="rn-pricing shadow-sm p-5 ">
                                 <div class="pricing-header ">
                                     <div class="header-left ">
@@ -1076,7 +1096,7 @@
                             </style>
                             <!-- End -->
                         </div>
-                        <div class="tab-pane fade white-backgroud " id="standard " role="tabpanel " aria-labelledby="standard-tab ">
+                        <div class="tab-pane fade white-backgroud " id="standard" role="tabpanel " aria-labelledby="standard-tab ">
                             <div class="rn-pricing shadow-sm p-5 ">
                                 <div class="pricing-header ">
                                     <div class="header-left ">
@@ -1198,7 +1218,7 @@
 
                             <!-- End -->
                         </div>
-                        <div class="tab-pane fade white-backgroud " id="premium " role="tabpanel " aria-labelledby="premium-tab ">
+                        <div class="tab-pane fade white-backgroud " id="premium" role="tabpanel " aria-labelledby="premium-tab ">
                             <div class="rn-pricing shadow-sm p-5 ">
                                 <div class="pricing-header ">
                                     <div class="header-left ">
