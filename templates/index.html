@@ -22,16 +22,24 @@
     <!-- css -->
     <link rel="stylesheet" href="{% static 'css/background.css' %}">
     <link rel="stylesheet" href="{%static 'css/index.css' %}">
+    <link rel="stylesheet" href="{%static 'css/loading.css' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>My website</title>
 </head>
 
+
 <body id="click_close">
+
+    <div class="laoding">
+        <div class="right"></div>
+        <div class="right"></div>
+        <div class="right"></div>
+    </div>
 
     {%for profi in profile%}
     <nav class="nav navbar-expand-lg navbar-light navbar_fix   shadow-sm" style="z-index: 100;">
         <div class="navbar container-fluid ">
-            <a class="navbar-brand" href="#contact">
-
+            <a class="navbar-brand" href="{%url 'myImage' %}">
                 <img src="{{profi.profile_pic.url}} " alt="image " class="profile_img ">
 
                 <div class="dube">
@@ -43,6 +51,8 @@
                     </div>
                     <div class="top"></div>
                 </div>
+                <!-- time -->
+                <h6 class="m-2" id="demo"></h6>
 
                 <ul class="nav me-auto mb-2 mb-lg-0 ">
                     <li class="nav">
@@ -76,23 +86,23 @@
                     <a class=" btn tee " href="#i_do">I_Do</a>
                 </li>
                 <li class="nav-item ">
-                    <a class=" btn tee " href="#portfolio ">Portfolio</a>
+                    <a class=" btn tee " href="#portfolio">Portfolio</a>
                 </li>
 
                 <li class="nav-item ">
-                    <a class="btn tee " href="#resume ">Resume</a>
+                    <a class="btn tee " href="#resume">Resume</a>
                 </li>
                 <!-- <li class="nav-item " role="none">
                     <a class=" btn tee " href="#award">Award</a>
                 </li> -->
                 <li class="nav-item ">
-                    <a class=" btn tee " href="#blog ">Blog</a>
+                    <a class=" btn tee " href="#blog">Blog</a>
                 </li>
                 <li class="nav-item ">
                     <a class=" btn tee" href="#pricing">Pricing</a>
                 </li>
                 <li class="nav-item ">
-                    <a class=" btn tee " href="#contact ">contect</a>
+                    <a class=" btn tee " href="#contact">contact</a>
                 </li>
 
             </ul>
@@ -105,6 +115,7 @@
     <!-- profile -->
     <div class="first text-center ">
         <h1>HELLO! WELCOME TO MY PORTFOLIO</h1>
+
     </div>
 
 
@@ -121,8 +132,13 @@
                 <p class="poop "></p>
                 <div class="text-center picture-profile ">
 
-                    <a href="{%static 'img/monkey.jpg' %} "><img src="{{profi.profile_pic.url}} " alt=" " class="rounded " style="margin-top: 6rem; "></a>
-
+                    <img src="{{profi.profile_pic.url}} " alt="" onclick="onClick(this)" class="rounded " style="margin-top: 6rem; ">
+                    <div id="modal01" class="w3-modal p-2" onclick="this.style.display='none'">
+                        <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                        <div class="w3-modal-content w3-animate-zoom">
+                            <img id="img01" style="width:50%; height: auto; object-fit: contain;">
+                        </div>
+                    </div>
                     <br>
                     <br>
                     <h1>{{profi.name}}</h1>
@@ -284,7 +300,6 @@
             .bi {
                 display: block;
             }
-            .box--ido {}
         }
         
         @media only screen and (max-width: 912px) {
@@ -413,6 +428,21 @@
             this.classList.add('active')
         }
         list.forEach((item) => item.addEventListener('click', activeLink));
+        // time
+        let timeColor = document.getElementById("demo");
+        const myInterval = setInterval(myTimer, 1000);
+
+        function myTimer() {
+            const date = new Date();
+            document.getElementById("demo").innerHTML = date.toLocaleTimeString();
+            timeColor.style.color = timeColor.style.color == "black" ? "#fd516e" : "black";
+        }
+
+        // image view 
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+        }
     </script>
     <!-- what i do  -->
 
@@ -428,8 +458,12 @@
         <div class="text-center row  ">
             <!-- start -->
             {%for p in i_do%}
+
             <div class="col-lg-5 col-xl-4 col-md-6 col-13 p-4 box--hover ">
                 <img style="width: 3rem; height: 3rem;object-fit: cover;margin-bottom: 1rem; " src="{{p.icons.url}} " alt="icon ">
+
+
+
                 <div class="shadow-sm text-center white-backgroud ">
                     <div class="inner rn-service ">
 
@@ -447,6 +481,7 @@
                         </a>
                     </div>
                 </div>
+                </a>
             </div>{%endfor%}
             <!-- endbox -->
 
@@ -497,6 +532,7 @@
     <!--  resume  -->
     <br>
     <br>
+
     <div class="container text-center resume " id="resume">
         <div class="row ">
             <div class="col-lg-12 ">
@@ -508,7 +544,7 @@
         </div>
 
         <div class="col-lg-12 " id="resume_box ">
-            <div class="sticky ">
+            <div class="sticky">
                 <ul class="nav nav-tabs ">
                     <li class="nav-item nav-tabs " role="presentation ">
                         <button class="nav-link resum--tab" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab" aria-controls="education ">Education</button>
@@ -519,110 +555,71 @@
                     <li class="nav-item " role="presentation ">
                         <button class="nav-link resum--tab" id="experience-tab" data-bs-target="#experience" data data-bs-toggle="tab" type="button " aria-controls="experience " aria-selected="false ">Experience</button>
                     </li>
-                    <li class="nav-item " role="presentation ">
-                        <button class="nav-link resum--tab" id="interview-tab" data-bs-target="#interview" data-bs-toggle="tab" type="button " aria-controls="interview " aria-labelledby="false ">Interviews</button>
-                    </li>
+
                 </ul>
             </div>
-            <div class="row tab-content " id="myTabContent ">
+            <div class="row tab-content " id="myTabContent">
                 <!-- .....--------------Education------------ -->
-
                 <div class="tabcontent tab-pane fade show active " id="education" role="tabpanel " aria-labelledby="education-tab ">
 
-                    <div class="row " id="educate ">
-                        <div data-aos-once="true " class=" col-md-6 educate_class ">
-                            <span class="subtitle ">2001-2003</span>
-                            <h4 class="maintitle ">Education</h4>
-                            <div class=" shadow-sm m-3 p-1 resume--box white-backgroud box--hover ">
-                                <div class="resume-single-list m-5 ">
-                                    <div class="inner ">
-                                        <div class="heading ">
-                                            <div class="title ">
-                                                <h5>tranlatder </h5>
-                                                <span>work at HTT company (2003-2004)</span>
+                    <div class="d-flex" id="educate ">
+                        <div class="d-grid col-lg-6">
+                            {%for e in education%}{%if e.job_id == 1%}
+                            <div data-aos-once="true " class=" col-md-12 educate_class ">
+                                <span class="subtitle ">{{e.years}}</span>
+                                <h4 class="maintitle ">{{e.job}}</h4>
+                                <div class=" shadow-sm m-3 p-1 resume--box white-backgroud box--hover">
+                                    <div class="resume-single-list m-5 ">
+                                        <div class="inner ">
+                                            <div class="heading ">
+                                                <div class="title ">
+                                                    <h5>{{e.name}}</h5>
+                                                    <span>{{e.title}}</span>
+                                                </div>
+                                                <div class="date-of-time ">
+                                                    <span>4.30$/1</span>
+                                                </div>
                                             </div>
-                                            <div class="date-of-time ">
-                                                <span>4.30$/1</span>
-                                            </div>
+                                            <br>
+                                            <p class="description ">{{e.description}}</p>
                                         </div>
-                                        <br>
-                                        <p class="description ">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class=" shadow-sm m-3 p-1 resume--box box--hover ">
 
-                                <div class="resume-single-list m-5 ">
-                                    <div class="inner ">
-                                        <div class="heading ">
-                                            <div class="title ">
-                                                <h5>tranlatder </h5>
-                                                <span>work at HTT company (2003-2004)</span>
+                            {%endif%} {%endfor%}
 
-                                            </div>
-                                            <div class="date-of-time ">
-                                                <span>4.30$/1</span>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <p class="description ">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
-
-                        <div class=" col-md-6 col-12 educate_class2 ">
-
-                            <span class="subtitle ">2001-2003</span>
-                            <h4 class="maintitle ">JOB</h4>
-                            <div class=" shadow-sm m-3 p-1 resume--box box--hover ">
-                                <div class="resume-single-list m-5 ">
-                                    <div class="inner ">
-                                        <div class="heading ">
-                                            <div class="title ">
-                                                <h5>tranlatder </h5>
-                                                <span>work at HTT company (2003-2004)</span>
+                        <div class="d-grid col-lg-6">
+                            {%for ed in education%}{%if ed.job_id == 2%}
+                            <div data-aos-once="true " class="col-md-12 col-12 educate_class2 dropdown ">
+                                <span class="subtitle ">{{ed.years}}</span>
+                                <h4 class="maintitle ">{{ed.job}}</h4>
+                                <div class=" shadow-sm m-3 p-1 resume--box white-backgroud box--hover ">
+                                    <div class="resume-single-list m-5 ">
+                                        <div class="inner ">
+                                            <div class="heading ">
+                                                <div class="title ">
+                                                    <h5>{{ed.name}}</h5>
+                                                    <span>{{ed.title}}</span>
+                                                </div>
+                                                <div class="date-of-time ">
+                                                    <span>4.30$/1</span>
+                                                </div>
                                             </div>
-                                            <div class="date-of-time ">
-                                                <span>4.30$/1</span>
-                                            </div>
+                                            <br>
+                                            <p class="description ">{{e.description}}</p>
                                         </div>
-                                        <br>
-                                        <p class="description ">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class=" shadow-sm m-3 p-1 resume--box box--hover ">
 
-                                <div class="resume-single-list m-5 ">
-                                    <div class="inner ">
-                                        <div class="heading ">
-                                            <div class="title ">
-                                                <h5>tranlatder </h5>
-                                                <span>work at HTT company (2003-2004)</span>
-
-                                            </div>
-                                            <div class="date-of-time ">
-                                                <span>4.30$/1</span> </div>
-                                        </div>
-                                        <br>
-                                        <p class="description ">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
-                                    </div>
-                                </div>
-
-                            </div>
+                            {%endif%} {%endfor%}
                         </div>
-
-
-
                     </div>
-
                 </div>
-
                 <!-- .....--------------skill------------ -->
-
-                <div class="tabcontent fade " id="skill" role="tabpanel " aria-labelledby="skill-tab ">
+                <div class="tabcontent fade" id="skill" role="tabpanel" aria-labelledby="skill-tab ">
                     <div id="skil "><span class="subtitle ">Features</span>
                         <h4>Design Skill</h4>
                     </div>
@@ -645,167 +642,44 @@
                             </div>
                         </div>
                         {%endfor%}
-                        <!-- End Single Progressbar  -->
-
-                        <!-- Start Single Progressbar  -->
-                        <div class="col-lg-6 col-md-6 col-12 ">
-                            <div class="progress-wrapper ">
-                                <div class="content ">
-                                    <!-- Start Single Progress Charts -->
-                                    <div class="progress-charts ">
-                                        <h6 class="heading heading-h6 ">HTML</h6>
-                                        <div class="progress ">
-                                            <div class="progress-bar " data-wow-duration="0.5s " data-wow-delay=".4s " role="progressbar " style="width: 85% " aria-valuenow="85 " aria-valuemin="0 " aria-valuemax="100 "><span class="percent-label ">85%</span></div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Progress Charts -->
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Progressbar  -->
-                        <!-- Start Single Progressbar  -->
-                        <div class="col-lg-6 col-md-6 col-12 ">
-                            <div class="progress-wrapper ">
-                                <div class="content ">
-                                    <!-- Start Single Progress Charts -->
-                                    <div class="progress-charts ">
-                                        <h6 class="heading heading-h6 ">Python</h6>
-                                        <div class="progress ">
-                                            <div class="progress-bar " data-wow-duration="0.5s " data-wow-delay=".5s " role="progressbar " style="width: 70% " aria-valuenow="70 " aria-valuemin="0 " aria-valuemax="100 "><span class="percent-label ">70%</span></div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Progress Charts -->
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Progressbar  -->
-
-                        <!-- Start Single Progressbar  -->
-                        <div class="col-lg-6 col-md-6 col-12 ">
-                            <div class="progress-wrapper ">
-                                <div class="content ">
-                                    <!-- Start Single Progress Charts -->
-                                    <div class="progress-charts ">
-                                        <h6 class="heading heading-h6 ">CSS</h6>
-                                        <div class="progress ">
-                                            <div class="progress-bar " data-wow-duration="0.5s " data-wow-delay=".6s " role="progressbar " style="width: 85% " aria-valuenow="85 " aria-valuemin="0 " aria-valuemax="100 "><span class="percent-label ">85%</span></div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Progress Charts -->
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Progressbar  -->
-                        <!-- Start Single Progressbar  -->
-                        <div class="col-lg-6 col-md-6 col-12 ">
-                            <div class="progress-wrapper ">
-                                <div class="content ">
-                                    <!-- Start Single Progress Charts -->
-                                    <div class="progress-charts ">
-                                        <h6 class="heading heading-h6 ">Javascript</h6>
-                                        <div class="progress ">
-                                            <div class="progress-bar " data-wow-duration="0.5s " data-wow-delay=".7s " role="progressbar " style="width: 35% " aria-valuenow="85 " aria-valuemin="0 " aria-valuemax="100 "><span class="percent-label ">35%</span></div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Progress Charts -->
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Progressbar  -->
-
                     </div>
-
                 </div>
-
                 <!-- .....--------------experience------------ -->
 
-                <div class="tabcontent fade " id="experience" role="tabpanel " aria-labelledby="experience-tab " class=" col-md-6 col-12 ">
+                <div class="tabcontent fade" id="experience" role="tabpanel" aria-labelledby="experience-tab" class=" col-md-6 col-12 ">
+
+                    {%for edu in education%}{%if edu.job_id == 3%}
                     <div class="eperience_animation ">
                         <div id="exper ">
-                            <span class="subtitle ">2001-2003</span>
-                            <h4 class="maintitle ">Experience </h4>
+                            <span class="subtitle ">{{edu.years}}</span>
+                            <h4 class="maintitle ">Experience</h4>
                         </div>
+
+
                         <div class=" shadow-sm m-3 p-1 resume--box box--hover ">
                             <div class="resume-single-list m-5 ">
                                 <div class="inner ">
                                     <div class="heading ">
                                         <div class="title ">
-                                            <h5>Work at BBT company</h5>
-                                            <span>20012-2015</span>
+                                            <h5>{{edu.name}}</h5>
+                                            <span>{{edu.title}}</span>
                                         </div>
                                         <div class="date-of-time ">
                                             <span>7.30$/1</span>
                                         </div>
                                     </div>
                                     <br>
-                                    <p class="description ">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
+                                    <p class="description ">{{edu.description}}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class=" shadow-sm m-3 p-1 resume--box box--hover ">
-                            <div class="resume-single-list m-5 ">
-                                <div class="inner ">
-                                    <div class="heading ">
-                                        <div class="title ">
-                                            <h5>Work at BBT company</h5>
-                                            <span>20012-2015</span>
-                                        </div>
-                                        <div class="date-of-time ">
-                                            <span>7.30$/1</span>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <p class="description ">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    </div>{%endif%}{%endfor%}
 
                 </div>
+
                 <!-- .....--------------interview ------------ -->
 
-                <div id="interview" class="tabcontent fade " role="tabpanel " aria-labelledby="interview-tab" class=" col-md-6 col-12 educate_class ">
-                    <div class="eperience_animation ">
-                        <div id="inter ">
-                            <span class="subtitle ">2001-2003</span>
-                            <h4 class="maintitle ">Interview</h4>
-                        </div>
-                        <div class=" shadow-sm m-3 p-1 resume--box box--hover ">
-                            <div class="resume-single-list m-5 ">
-                                <div class="inner ">
-                                    <div class="heading ">
-                                        <div class="title ">
-                                            <h5>Forieng</h5>
-                                            <span>about ho to job in foriegn</span>
-                                        </div>
-                                        <div class="date-of-time ">
-                                            <!-- <span>4.30$/1</span> -->
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <p class="description ">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" shadow-sm m-3 p-1 resume--box box--hover ">
-                            <div class="resume-single-list m-5 ">
-                                <div class="inner ">
-                                    <div class="heading ">
-                                        <div class="title ">
-                                            <h5>Forieng</h5>
-                                            <span>about ho to job in foriegn</span>
-                                        </div>
-                                        <div class="date-of-time ">
-                                            <!-- <span>4.30$/1</span> -->
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <p class="description ">description Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam eaque officiis aperiam libero soluta perferendis? Dolorum temporibus deserunt placeat explicabo nobis fuga?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -861,7 +735,7 @@
     </style>
 
     <!-- ==== Accomplishments and awards ===== -->
-    <!-- <div class="container text-center resume " id="award">
+    <!-- <div class="container text-center resume " id="award ">
         <div class="row ">
             <div class="col-lg-12 ">
                 <div class="section-title text-center ">
@@ -881,13 +755,13 @@
             </div>
             <div class="carousel-inner white-backgroud row ">
                 {%for aw in award%}
-                <div class="carousel-item {% if forloop.counter0 == 0 %}active {%endif%}">
-                    <img src="{{aw.award_picture.url}} " class=" img--slide" alt="... ">
+                <div class="carousel-item  ">
+                    <img src="{{aw.award_picture.url}} " class=" img--slide " alt="... ">
                     <div class="carousel-caption d-none d-md-block ">
                         <h5> {{aw.award_title}}</h5>
                         <p>{{aw.award_explain}}</p>
                         <h4>{{aw.time}}</h4>
-                        <a href="# " class="nav-link shadow-sm oder p-2">View photos</a>
+                        <a href="# " class="nav-link shadow-sm oder p-2 ">View photos</a>
                     </div>
                 </div>
                 {%endfor%}
@@ -924,7 +798,7 @@
             <div class="row ">
                 <!-- vStart Single blog -->
                 {%for bl in blog%}
-                <div class="col-lg-4 col-xl-3 col-md-6 col-12 ">
+                <div class="col-lg-4 col-xl-3 col-md-6 col-12 mt-4 ">
                     <div class="row cours2 inner shadow-sm blog--box white-backgroud box--hover " style="overflow:hidden; ">
                         <div class="text-center ">
                             <div class=" ">
@@ -934,11 +808,11 @@
                                     </a>
                                 </div>
                                 <div class="cours3 col-12 ">
-                                    <h4 class=" nav-link por--text">{{bl.sub_blog}}</h4>
+                                    <h4 class=" nav-link por--text ">{{bl.sub_blog}}</h4>
                                 </div>
                                 <div class="content ">
                                     <div class="category-info m-lg-3 ">
-                                        <a href="{% url 'detailBlog' bl.id%} " class="nav-link text--text">{{bl.name_blog}}</a>
+                                        <a href="{% url 'detailBlog' bl.id%} " class="nav-link text--text ">{{bl.name_blog}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -975,20 +849,20 @@
                         <ul class="nav nav-tabs " id="myTab " role="tablist ">
 
                             <li class="nav-item " role="presentation ">
-                                <button class="nav-link " id="static-tab " data-bs-toggle="tab" data-bs-target="#static " type="button " role="tab " aria-controls="static " aria-selected="false ">static</button>
+                                <button class="nav-link " id="static-tab " data-bs-toggle="tab" data-bs-target="#static" type="button " role="tab" aria-controls="static " aria-selected="false ">static</button>
                             </li>
                             <li class="nav-item " role="presentation ">
-                                <button class="nav-link " id="standard-tab " data-bs-toggle="tab" data-bs-target="#standard " type="button " role="tab " aria-controls="standard " aria-selected="false ">Standard</button>
+                                <button class="nav-link " id="standard-tab " data-bs-toggle="tab" data-bs-target="#standard" type="button " role="tab" aria-controls="standard " aria-selected="false ">Standard</button>
                             </li>
                             <li class="nav-item " role="presentation ">
-                                <button class="nav-link " id="premium-tab " data-bs-toggle="tab" data-bs-target="#premium " type="button " role="tab " aria-controls="premium " aria-selected=" false ">Premium</button>
+                                <button class="nav-link " id="premium-tab " data-bs-toggle="tab" data-bs-target="#premium" type="button " role="tab" aria-controls="premium " aria-selected=" false ">Premium</button>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="tab-content " id="myTabContent">
+                    <div class="tab-content" id="myTabContent">
 
-                        <div class="tab-pane fade show active white-backgroud " id="static" role="tabpanel " aria-labelledby="static-tab ">
+                        <div class="tab-pane fade show active white-backgroud " id="static" role="tabpanel " aria-labelledby="static-tab">
                             <div class="rn-pricing shadow-sm p-5 ">
                                 <div class="pricing-header ">
                                     <div class="header-left ">
@@ -1088,16 +962,16 @@
                                         <span>ORDER NOW</span>
                                         <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-arrow-right-circle " viewBox="0 0 16 16 ">
                                             <path fill-rule="evenodd " d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293
-                    7.5H4.5z "/>
+                                7.5H4.5z "/>
                                           </svg>
                                     </a>
                                     <div class=" d-plex ">
                                         <div class="text-center p-4 ">
                                             <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-clock-history " viewBox="0 0 16 16 ">
                                                 <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025
-                    0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53
-                    2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555
-                    1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
+                                0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023
+                                0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555
+                                1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
                                                 <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z "/>
                                                 <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z "/>
                                               </svg>
@@ -1147,7 +1021,7 @@
                             </style>
                             <!-- End -->
                         </div>
-                        <div class="tab-pane fade white-backgroud " id="standard" role="tabpanel " aria-labelledby="standard-tab ">
+                        <div class="tab-pane fade white-backgroud " id="standard" role="tabpanel " aria-labelledby="standard-tab">
                             <div class="rn-pricing shadow-sm p-5 ">
                                 <div class="pricing-header ">
                                     <div class="header-left ">
@@ -1247,16 +1121,16 @@
                                         <span>ORDER NOW</span>
                                         <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-arrow-right-circle " viewBox="0 0 16 16 ">
                                             <path fill-rule="evenodd " d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293
-                    7.5H4.5z "/>
+                                7.5H4.5z "/>
                                           </svg>
                                     </a>
                                     <div class=" d-plex ">
                                         <div class="text-center p-4 ">
                                             <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-clock-history " viewBox="0 0 16 16 ">
                                                 <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025
-                    0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53
-                    2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555
-                    1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
+                                0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023
+                                0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555
+                                1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
                                                 <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z "/>
                                                 <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z "/>
                                               </svg>
@@ -1269,7 +1143,7 @@
 
                             <!-- End -->
                         </div>
-                        <div class="tab-pane fade white-backgroud " id="premium" role="tabpanel " aria-labelledby="premium-tab ">
+                        <div class="tab-pane fade white-backgroud " id="premium" role="tabpanel " aria-labelledby="premium-tab">
                             <div class="rn-pricing shadow-sm p-5 ">
                                 <div class="pricing-header ">
                                     <div class="header-left ">
@@ -1369,16 +1243,16 @@
                                         <span>ORDER NOW</span>
                                         <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-arrow-right-circle " viewBox="0 0 16 16 ">
                                             <path fill-rule="evenodd " d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293
-                    7.5H4.5z "/>
+                                7.5H4.5z "/>
                                           </svg>
                                     </a>
                                     <div class=" d-plex ">
                                         <div class="text-center p-4 ">
                                             <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-clock-history " viewBox="0 0 16 16 ">
                                                 <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025
-                    0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53
-                    2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555
-                    1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
+                                0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023
+                                0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555
+                                1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z "/>
                                                 <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z "/>
                                                 <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z "/>
                                               </svg>
@@ -1413,14 +1287,13 @@
             <div class="row ">
                 <div class="col-lg-5 ">
 
-                    <div class=" ">
-                        <div class=" ">
-
-                            <img src="{{profi.profile_pic.url}} " style="width: 350px; height: 150px; object-fit: cover; margin:0 auto; border-radius: 5px; " alt="Personal Portfolio Images ">
+                    <div>
+                        <div>
+                            <img src="{{profi.profile_pic.url}} " onclick="onClick(this)" style=" width: 350px; height: 150px; object-fit: cover; margin:0 auto; border-radius: 5px; " alt="Personal Portfolio Images ">
                         </div>
-                        <div class=" ">
+                        <div>
                             <h4 class=" ">{{profi.location}}</h4>
-                            <span>Chief Operating Officer</span>
+                            <span>😉😉</span>
                         </div>
                         <div class="description ">
                             <p>{{profi.explain_me}}
@@ -1433,62 +1306,62 @@
                             <div class="social-icone ">
                                 <ul class="nav me-auto mb-2 mb-lg-0 ">
                                     <li class="nav-item ">
-                                        <a class="nav-link " aria-current="page " href="https://www.facebook.com/houa.odx "><i class="fa-brands fa-facebook logo--me logo--footer "></i></a>
+                                        <a class="nav-link " target="_blank" aria-current="page " href="https://www.facebook.com/houa.odx "><i class="fa-brands fa-facebook logo--me logo--footer "></i></a>
                                     </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link " aria-current="page " href="# "><i class="fa-brands fa-whatsapp logo--me logo--footer "></i></a>
+                                        <a class="nav-link " target="_blank" aria-current="page " href="# "><i class="fa-brands fa-whatsapp logo--me logo--footer "></i></a>
                                     </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link " href="# "><i class="fa-brands fa-instagram logo--me logo--footer "></i></a>
+                                        <a class="nav-link " target="_blank" href="# "><i class="fa-brands fa-instagram logo--me logo--footer "></i></a>
                                     </li>
-                                    <li class="nav-item ">
-                                        <a class="nav-link " href="# "><svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-tiktok " viewBox="0 0 16 16 ">
-                                            <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z "/>
-                                          </svg></a>
-                                    </li>
+
                                 </ul>
                             </div>
                         </div>
                     </div>
 
                 </div>
+                {%if submitted%}
+                <p class="text-danger ">Your new jobwas submitted Sucessfully!!</p>
+                {%else%}
+
                 <div data-aos-delay="600 " class="col-lg-7 white-backgroud ">
 
                     <div class="introduce ">
-                        <form class="row " id="contact-form " method="POST " action=" ">
-
+                        <form class="row " id="contact-form " method="POST " action="{% url 'contectMee' %} " enctype="multipart/form-data ">
+                            {% csrf_token %}
                             <div class="col-lg-6 ">
                                 <div class="form-group ">
                                     <label for="contact-name ">Your Name</label>
-                                    <input class="form-control " name="contact-name " id="contact-name " type="text ">
+                                    <input class="form-control " name="name " id="contact-name " type="text " required>
                                 </div>
                             </div>
 
                             <div class="col-lg-6 ">
                                 <div class="form-group ">
                                     <label for="contact-phone ">Phone Number</label>
-                                    <input class="form-control " name="contact-phone " id="contact-phone " type="text ">
+                                    <input class="form-control " name="phone " id="contact-phone " type="text " required>
                                 </div>
                             </div>
 
                             <div class="col-lg-12 ">
                                 <div class="form-group ">
-                                    <label for="contact-email ">Email</label>
-                                    <input class="form-control form-control-sm " id="contact-email " name="contact-email " type="email ">
+                                    <label for="emailC ">Email</label>
+                                    <input class="form-control form-control-sm " id="contact-email " name="emailC " type="email " required>
                                 </div>
                             </div>
 
                             <div class="col-lg-12 ">
                                 <div class="form-group ">
                                     <label for="subject ">subject</label>
-                                    <input class="form-control form-control-sm " id="subject " name="subject " type="text ">
+                                    <input class="form-control form-control-sm " id="subject " name="subject " type="text " required>
                                 </div>
                             </div>
 
                             <div class="col-lg-12 ">
                                 <div class="form-group ">
-                                    <label for="contact-message ">Your Message</label>
-                                    <textarea class="form-control form-control-sm " name="contact-message " id="contact-message " cols="53 " rows="6 "></textarea>
+                                    <label for="message ">Your Message</label>
+                                    <textarea class="form-control form-control-sm " name="message " id="contact-message " cols="53 " rows="6 " required></textarea>
                                 </div>
                             </div>
 
@@ -1498,9 +1371,15 @@
                                     <i data-feather="arrow-right "></i>
                                 </button>
                             </div>
+                            {%for messa in messages%}
+                            <div>
+                                <p class="text-danger ">{{messa}}</p>
+                            </div>
+                            {%endfor%}
                         </form>
                     </div>
                 </div>
+                {%endif%}
             </div>
         </div>
     </div>
@@ -1512,7 +1391,7 @@
                 <div class="footer-area text-center ">
 
                     <div class="logo ">
-                        <a href="index.html ">
+                        <a href="{%url 'index' %}">
                             <img src="{{profi.profile_pic.url}} " alt="logo " class="footer--logo ">
                         </a>
                     </div>
@@ -1528,10 +1407,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12 "></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script>
-    <script src="{% static 'js/main.js' %} "></script>
+    <script src="{%static 'js/main.js' %} "></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script>
 
-
-</body>
 
 </body>

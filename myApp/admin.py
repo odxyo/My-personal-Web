@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import I_do,Portfolio,Skill,Blog,Award,Profile
+from .models import I_do,Portfolio,Skill,Blog,Award,Educate,Education
+from myprofile.models import Profile
 # Register your models here.
 class whatDoAdmin(admin.ModelAdmin):
     list_display=['job_name','icons']
@@ -29,3 +30,11 @@ admin.site.register(Award,AwardAdmin)
 class ProfileAdmin(admin.ModelAdmin):
     list_display=['name']
 admin.site.register(Profile,ProfileAdmin)
+
+class Educatedmin(admin.ModelAdmin):
+    list_display=['name']
+admin.site.register(Educate,Educatedmin)
+class EducationAdmin(admin.ModelAdmin):
+    list_display=['name']
+admin.site.register(Education,EducationAdmin)
+

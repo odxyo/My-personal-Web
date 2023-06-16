@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    {%load static%}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,22 +13,36 @@
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{%static 'css/loading.css' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300&display=swap" rel="stylesheet">
     <title>Bolg</title>
 </head>
 
 
 <body>
+    <div class="laoding">
+        <div class="right"></div>
+        <div class="right"></div>
+        <div class="right"></div>
+    </div>
     <div class="container pfo--box shadow-sm mb-5">
         <div class="icon--cancel">
-            <a href="{%url 'index' %}">
+            <a href="#" onclick="history.back()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill=" currentColor " class="bi bi-x-lg " viewBox="0 0 16 16 ">
             <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z "/>
           </svg></a>
         </div>
         <div class="pfo-box2 row ">
             <div class="picture_pfo col-md-6 col-xl-6 ">
-                <img src="{{detailBlog.blog_pic.url}} " alt=" ">
+                <img src="{{detailBlog.blog_pic.url}} " alt=" " onclick="onClick(this)">
+                <div id="modal01" class="w3-modal p-2" onclick="this.style.display='none'">
+                    <!-- <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span> -->
+                    <div class="w3-modal-content w3-animate-zoom">
+                        <img id="img01" style="width:100%; height: auto; object-fit: contain;">
+                    </div>
+                </div>
             </div>
             <div class="text--pfo col-md-6 col-xl-6 ">
                 <div class=" pfo--explain p-4 ">
@@ -40,14 +55,17 @@
             </div>
         </div>
         <div class="container">
+
+            {%if detailBlog.title1 != None%}
             <div class="">
-                <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
-                <p class="p-4 col-lg-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore nisi et soluta doloribus tenetur. Quasi libero eaque nostrum mollitia blanditiis, pariatur amet culpa dolores voluptates exercitationem corrupti incidunt! Consequatur, odio?</p>
+                <h1>{{detailBlog.title1}}</h1>
+                <p class="p-4 col-lg-6">{{detailBlog.title1_explain}}</p>
             </div>
             <div class="">
-                <h1>consectetur adipisicing elit.</h1>
-                <p class="p-4 col-lg-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore nisi et soluta doloribus tenetur. Quasi libero eaque nostrum mollitia blanditiis, pariatur amet culpa dolores voluptates exercitationem corrupti incidunt! Consequatur, odio?</p>
+                <h1>{{detailBlog.title2}}</h1>
+                <p class="p-4 col-lg-6">{{detailBlog.title2_explain}}</p>
             </div>
+            {%endif%}
             <h1>Leave a Reply</h1>
             <div class="introduce col-lg-6 row">
                 <form class="row " id="contact-form " method="POST " action=" ">
@@ -196,6 +214,15 @@
             }
         }
     </style>
+    <script>
+        // image view 
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+        }
+    </script>
+    <script src="{% static 'js/main.js' %} "></script>
+
 </body>
 
 </html>

@@ -1,0 +1,32 @@
+{%extends 'backend/dashbord/bashbord.html' %}{%load static%}{% block navsetting %}
+
+
+<body>
+    <div class="container ">
+
+        <div class="col-lg-6 position-absolute top-50 start-50 translate-middle shadow-sm  p-md-4">
+            <a href="{%url 'lock' %}"><i class="bi bi-arrow-left-short fs-2"></i></a>
+
+            <p>Edit or change some things</p>
+            <br>
+            <br>
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">User name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder" {{form.username}} </br>
+                    <div class=" mb-3 ">
+                        <label for="formGroupExampleInput2 " class="form-label ">Email</label>
+                        <input type="email" class="form-control " id="formGroupExampleInput2 " placeholder="Another input placeholder " {{form.email}} </div>
+                    </div>
+
+                    <button class="btn btn-primary " type="submit " value="Update ">Update</button>
+            </form>
+            <br>
+            <br>
+            </div>
+
+
+        </div>
+</body>{%endblock%}

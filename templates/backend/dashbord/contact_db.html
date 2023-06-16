@@ -1,0 +1,51 @@
+ {%extends 'backend/dashbord/bashbord.html' %}{%load static%}{% block navsetting %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+<body>
+
+    <br><br><br>
+    <div class="shadow-sm  container  back--top">
+
+
+
+        <div class="col-lg-8 ">
+            {%for ms in messages%}
+            <p class="text-danger "> You're delete sucess! {{cont.name}}</p>
+            {%endfor%}
+
+            <hr>
+            <div>
+                <!-- portfolio -->
+                <h4>Who contect me</h4>
+                {%for cont in mycontact%}
+
+                <ul class="mb-2 ">
+                    <div class="d-flex">
+                        <a href="{% url 'detail_cont' cont.id %} " class="nav-link">{{cont.name}}</a>
+                        <p>{{cont.datetime}}</p>
+                    </div>
+                    <a href="{% url 'delete_contact' cont.id %} " class="text-danger float-end"><i class="fa-solid fa-trash"></i></a>
+                    <br>
+                    <hr>
+                </ul>
+                {%endfor%}
+
+            </div>
+        </div>
+
+    </div>{% endblock%}
+    <style>
+        .hh {
+            background: rgb(107, 107, 107);
+        }
+        
+        h3,
+        tr {
+            color: aliceblue;
+        }
+    </style>
+
+
+</body>
+
+</html>

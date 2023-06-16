@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    <title>My setting</title>
+</head>
+
+<body>
+
+    <div class=" shadow-sm    col-lg-12 fixed-top bg-white">
+        <div class="col-lg-6 ">
+            <div>
+                <h3 class="text-center text-dark">Admin page</h3>
+            </div>
+
+            <div class="nav">
+                <ul>
+                    <tr></tr><a href="{%url 'lock'%} " class=" m-lg-2"><span><i class="bi bi-lock"></i></span></a>
+                </ul>
+                <ul>
+
+                    <a href="{%url 'edit_profile'%} " class="m-lg-2"><i class="bi bi-person-circle "></i></a>
+
+                    <!-- <a href="{%url 'myprofile'%} " class="float-end m-lg-2 ">view</a> -->
+                    <hr>
+                </ul>
+                <ul>
+                    <a href="{%url 'whocontact'%} " class="m-lg-2 "><i class="bi bi-chat-dots "></i></a>
+                    <hr>
+                </ul>
+                <ul>
+                    <!-- <strong><p>Job name</p></strong> -->
+                    <!-- <tr>What i do</tr> -->
+                    <a href="{% url 'db_whatido' %} " class="text-danger m-lg-2 "><i class="bi bi-file-medical-fill "></i></a>
+                    <hr>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>{% block navsetting %}{% endblock%}
+    <style>
+        .hh {
+            background: rgb(107, 107, 107);
+        }
+        
+        h3,
+        tr {
+            color: aliceblue;
+        }
+        
+        .back--top {
+            margin-top: 7rem;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+{%extends 'backend/dashbord/bashbord.html' %}{%load static%}{% block navsetting %}
+
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+<body>
+    <div class="shadow-sm   container  back--top">
+
+        <div class="icon--cancel mt-2">
+            <a href="{%url 'db_whatido' %}"> <i class="bi bi-arrow-left-short fs-2"></i></a>
+        </div>
+
+        <h3 class="text-dark">Get a new job </h3>
+
+        <div class="col-lg-8 ">
+
+            <div class="col-lg-12 mb-4 ">
+                {%if submitted %}
+                <p class="text-danger">Your new jobwas submitted Sucessfully!!</p>
+
+                {%else%}
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <ul>
+                        <strong><p>Icon</p></strong>
+
+                        <input type="file" id="image_input" name="icons" class="shadow-none " accept="image/jpg, iamge/png" required {{form.icons}} <div style="display: flex; " class="text-center">
+                        <div id="display_image" class="mt-4" style="width: 6rem; height: 6rem; object-fit: cover; border: 1px solid black; background-position: center; background-size: cover; background-repeat: no-repeat;">
+                        </div>
+            </div>
+
+            <strong><p>Job name</p></strong>
+
+            <input type="text" {{form.job_name}} <div class="form-group ">
+            <strong><p>your discription job</p></strong>
+
+            <textarea class="form-control form-control-sm " id=" contact-message " cols="53 " rows="6 " {{form.job_dsp}}</textarea>
+        </div>
+
+
+        <div class="mt-2">
+            <button type="submit" class="rn-btn send--form m-1">Add</button>
+            <button class="rn-btn send--form m-1"><a href="{%url 'newjob' %}" class="text-white nav-link p-0"> Cancel</a></button>
+        </div>
+        </ul>
+        </form>
+        {%endif%}
+    </div>
+    <hr>
+    <div>
+
+
+        <ul class="mb-2 ">
+            <tr>portfolio</tr>
+            <a href="{%url 'newportfolio' %}" class="m-lg-2 ">new</a>
+            <hr>
+        </ul>
+
+        <ul class="mb-2 ">
+            <tr>Blog</tr>
+            <a href="{%url 'newblog' %}" class="m-lg-2 ">new</a>
+            <hr>
+        </ul>
+
+
+
+        <ul class="mb-2 ">
+            <tr>Skill</tr>
+            <a href="{% url 'newskill' %}" class="m-lg-2 ">new</a>
+            <hr>
+        </ul>
+
+    </div>
+    </div>
+
+    </div>
+    <style>
+        .hh {
+            background: rgb(107, 107, 107);
+        }
+        
+        h3,
+        tr {
+            color: aliceblue;
+        }
+    </style>
+
+    <script>
+        const image_input = document.querySelector("#image_input");
+        var upload_image = "";
+
+        image_input.addEventListener("change", function() {
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+                upload_image = reader.result;
+                document.querySelector("#display_image").style.backgroundImage = `url(${upload_image})`;
+
+            });
+            reader.readAsDataURL(this.files[0]);
+        })
+    </script>
+</body>
+
+{%endblock%}

@@ -1,0 +1,38 @@
+{%extends 'backend/dashbord/bashbord.html' %}{%load static%}{% block navsetting %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+<body class="container ">
+
+
+    <div class="col-lg-6 position-absolute top-50 start-50 translate-middle shadow-sm  p-md-4">
+        <a href="{%url 'dashbord' %}"><i class="bi bi-arrow-left-short fs-2"></i></a>
+
+        <p>This imformation not show in webpage.</p>
+        <br><br>
+        <div class="d-flex ">
+            <div class="m-3 "> {%for l in lock %}
+
+                <h4><i class="bi bi-person m-lg-2"></i> {{l.username}}</h4>
+                <br>
+                <h4><i class="bi bi-envelope m-lg-2"></i>{{l.email}}</h4>
+                <br>
+                <h4><i class="bi bi-key m-lg-2"></i>*******</h4>
+
+                {%endfor%}
+                <br>
+            </div>
+            <div class="col-lg-6">
+                <!-- <p class="float-end">Chnage user or password</p> -->
+                <br>
+                <a href="{% url 'userChange' user.id %}" class="float-end">User , Email</a>
+                <br>
+                <br><br><br>
+                <a href=" {%url 'passwordreste_comfrim' %} " class="float-end">Password</a></div>
+
+        </div>
+    </div>
+
+
+</body>
+
+{%endblock%}

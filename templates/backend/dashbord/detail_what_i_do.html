@@ -1,0 +1,33 @@
+{%extends 'backend/dashbord/bashbord.html' %}{%load static%}{% block navsetting %}
+
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+
+<body>
+
+    <br><br>
+    <div class="col-lg-12 back--top">
+        <div class="bg-white shadow-sm  container mb-4">
+            <!-- <div class="icon--cancel ">
+
+                <a href="{%url 'dashbord' %}" class="text-dark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill=" currentColor " class="bi bi-x-lg " viewBox="0 0 16 16 ">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z "/>
+                </svg>
+                </a>
+            </div> -->
+            <div class="col-lg-6 ">
+                <ul><a href="{%url 'newjob' %}" class="text-danger  ">New</a>
+                    <strong><p>Job name</p></strong> {%for b_ido in b_ido%}
+                    <a href="{%url 'iDoDelete' b_ido.id %}" class="float-end m-lg-2"><i class="fa-solid fa-trash"></i></a>
+                    <a href="{%url 'detail_dbord' b_ido.id %}" class=" m-lg-2 nav-link">{{b_ido.job_name}}</a>
+                    <hr> {%endfor%}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+{%endblock%}

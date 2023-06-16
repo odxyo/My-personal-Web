@@ -1,0 +1,30 @@
+{%extends 'backend/dashbord/bashbord.html' %}{%load static%}{% block navsetting %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+
+
+<body>
+    <br>
+    <br><br><b></b>
+    <br><br><b></b>
+    <br><br><b></b>
+    <div class=" container">
+        <div class="col-lg-8 ">
+            <form method="POST"> {% csrf_token %}
+                <p>If you have already deleted, You will not be able recover. <br><strong> Do you wana delete?</strong></p>
+                <div class="d-flex">
+                    <button type="submit" class="btn btn-lg btn-danger m-4" onclick="myFunction()">YES</button>
+                    <button type="button" onclick="history.back()" class="btn btn-lg btn-primary m-4" href="">NO</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+
+<script>
+    function myFunction() {
+        alert("YOu meesas djsii");
+    }
+</script>
+{%endblock%}

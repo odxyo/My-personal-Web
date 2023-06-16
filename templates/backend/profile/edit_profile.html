@@ -1,0 +1,27 @@
+{%extends 'backend/dashbord/bashbord.html' %}{%load static%}{% block navsetting %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+<body>
+    <div class="shadow-sm  container  ">
+        <br><br><br><br><br>
+
+        <a href="{%url 'dashbord' %}"><i class="bi bi-arrow-left-short fs-2"></i></a>
+
+        <div class="col-lg-8 ">
+
+
+            <div>
+                <!-- portfolio -->
+
+                {%for f in profile%}
+                <ul class="mb-2 ">
+                    <tr>My Profile</tr>
+                    <a href="{% url 'myprofileFix' f.id%}" class="float-end m-lg-2 ">Update</a>
+                    <hr>
+                </ul>
+                {%endfor%}
+            </div>
+        </div>
+
+    </div>
+</body>{%endblock%}
