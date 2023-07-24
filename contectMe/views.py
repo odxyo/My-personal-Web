@@ -8,11 +8,11 @@ from django.urls import reverse
 
 
 def contectMe(request):
-    submitted = False
-    name = request.POST['name']
-    phone = request.POST['phone']
-    emailC = request.POST['emailC']
-    subject = request.POST['subject']
+    
+    name = request.POST['name'],
+    phone = request.POST['phone'],
+    emailC = request.POST['emailC'],
+    subject = request.POST['subject'],
     message = request.POST['message']
 
     if name != None:
@@ -25,7 +25,7 @@ def contectMe(request):
             )
         contect.save()
         messages.info(request, 'Your message send successfully. Thank you')
-        return HttpResponseRedirect('/?submitted=True')
+        return HttpResponseRedirect('/')
     
     return render(request,'index.html')
 

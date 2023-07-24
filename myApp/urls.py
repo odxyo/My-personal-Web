@@ -8,6 +8,7 @@ urlpatterns = [
     path('myImage/',views.myImage,name='myImage'),
     path('portfolio/<int:id>/',views.portfolio,name='portfolio'),
     path('detailBlog/<int:id>',views.detailBlog,name='detailBlog'),
+    path('Skill_chart/',views.Skill_Chart.as_view()),
 
     # detail
     path('detail/<str:job_name>/',views.detail,name='detail'),

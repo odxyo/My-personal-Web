@@ -14,10 +14,16 @@ from .helpers import Forgot_Password
 from django.conf import settings
 from django.core.mail import send_mail
 
+# skill import
+
+from django.views.generic import View
+   
+from rest_framework.views import APIView
+from rest_framework.response import Response
 # Create your views here.
 
 def index(request):
-    
+
     i_do =I_do.objects.all()
     port = Portfolio.objects.all()
     education = Education.objects.all()
@@ -65,7 +71,32 @@ def detailBlog(request,id):
     return render(request,'detailBlog.html',{
         'detailBlog':detblog
     });
+class Skill_Chart(APIView):
+  
+    authentication_classes = []
+    permission_classes = []
+    def get(self,request, format = None):
+        skill_name = Skill.objects.values('name_work_skill')
+        skill_value = Skill.objects.values('skill')
+        labels = []
+        for sk in skill_name:
+            for i in sk.values():
+                labels.append(i)
+        
+        chartLabel = "my skill"
+        chartdata = []
+        for sk in skill_value:
+            for i in sk.values():
+                chartdata.append(i)
+        data ={
+                "labels":labels,
+                "chartLabel":chartLabel,
+                "chartdata":chartdata,
+             }
 
+        return Response(data)
+
+    
 # backend
 
 def detail_whatIdo(request):

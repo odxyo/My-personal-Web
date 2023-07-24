@@ -32,8 +32,9 @@ setInterval(textload, 12000);
 window.addEventListener("load", () => {
     const loader = document.querySelector(".laoding")
     loader.classList.add('loader-hidden');
-
+    document.querySelector("click_close").style.display = 'none';
     loader.addEventListener("transitionend", () => {
         document.body.removeChild("loader");
     })
 })
+document.getElementBy

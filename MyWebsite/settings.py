@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'myApp',
     'm_profile',
     'contectMe',
-    'myprofile'
+    'myprofile',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
