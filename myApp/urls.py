@@ -3,6 +3,7 @@ from .import views
 from django.contrib.auth import views as auth_views
 from .views import PasswordChangingView ,ForgotChangingView
 
+
 urlpatterns = [
     path('',views.index,name='index'),
     path('myImage/',views.myImage,name='myImage'),
@@ -62,4 +63,7 @@ urlpatterns = [
     path('newportfolio/', views.newportfolio, name="newportfolio"),
     path('newblog/', views.newblog, name="newblog"),
     path('newbskill/', views.newskill, name="newskill"),
+
+    # whatsapp API
+     path('send-whatsapp/', views.send_whatsapp_message, name='send_whatsapp_message'),
 ]

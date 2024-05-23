@@ -13,15 +13,13 @@
 const text = document.querySelector(".auto-type");
 const textload = () => {
     setTimeout(() => {
-        text.textContent = "Youtube";
+        text.textContent = "Youtuber";
     }, 0)
     setTimeout(() => {
-        text.textContent = "Developer";
-
+        text.textContent = "Back-End";
     }, 4000)
     setTimeout(() => {
-        text.textContent = "Frontend";
-
+        text.textContent = "Front-End";
     }, 8000)
 }
 textload()

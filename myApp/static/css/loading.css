@@ -5,7 +5,6 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    background-color: rgb(255, 250, 255);
 }
 
 .loader-hidden {

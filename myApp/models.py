@@ -23,6 +23,7 @@ class Portfolio(models.Model):
     name_work=models.CharField(max_length=200,null=True)
     title=models.CharField(max_length=200)
     like = models.IntegerField(default = 0)
+    link = models.CharField(null=True, blank=True, max_length=200)
     port_pic = models.ImageField(upload_to='media/picture')
     explain=models.TextField()
     

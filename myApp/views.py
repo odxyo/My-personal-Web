@@ -13,7 +13,7 @@ from django.template import loader
 from .helpers import Forgot_Password
 from django.conf import settings
 from django.core.mail import send_mail
-
+import os
 # skill import
 
 from django.views.generic import View
@@ -43,8 +43,17 @@ def index(request):
         'award':award,
         'profile':profile
     });
+
+
 def myImage(request):
-    return render(request, 'myImage.html')
+    media_path =  os.path.join(settings.MEDIA_ROOT, 'media', 'picture')
+    image_urls = []
+    for filename in os.listdir(media_path):
+        if filename.endswith(('.jpg', '.jpeg', '.png', '.gif')):
+            image_urls.append(settings.MEDIA_URL +'media/picture/'+filename)
+    return render(request, 'myImage.html', {'image_urls': image_urls})
+
+
 def detail(request,job_name):
     detai=get_object_or_404(I_do,job_name=job_name)
     
@@ -267,7 +276,7 @@ def loginFrom(request):
     email = request.POST['email']
     password = request.POST['password']
     user =auth.authenticate(username = username,email=email,password = password)
-
+    
     if user is not None:
         auth.login(request,user)
         if username==username and email==email and password==password:
@@ -431,4 +440,34 @@ def skillDelete(request, id):
     skill.delete()
     return redirect('deleteSucces')
 
- 
+
+from twilio.rest import Client
+from django.http import JsonResponse
+
+
+
+def send_whatsapp_message(request):
+    name = request.POST['name']
+    recipient_number = request.POST['phone']
+    message= request.POST['message']
+    data_list=[name,recipient_number, message]
+    formatted_data = {
+        'name': data_list[0],
+        'call': data_list[1],
+        'text': data_list[2]
+    }
+    data = f" Name: {formatted_data['name']} \n Phone: {formatted_data['call']} \n Message: {formatted_data['text']}"
+    client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+   
+    try:
+        message = client.messages.create(
+            from_=settings.TWILIO_WHATSAPP_NUMBER,
+            body=data,
+            to=settings.MY_WHATSAPP_NUMBER
+        )
+       
+        return redirect('index')
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+
+
