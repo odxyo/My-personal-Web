@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-$)315xjs#&$+wt(jftk-o7%z_bs7gyu58mgm!#yc1r*7-0^5lt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -95,9 +95,6 @@ WSGI_APPLICATION = 'MyWebsite.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    
-    
-    
 }
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
