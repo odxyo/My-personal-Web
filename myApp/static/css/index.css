@@ -223,7 +223,7 @@ marquee {
     left: 0;
     height: 100%;
     width: 100%;
-    /* background-color: var(--white); */
+    background-color: var(--white);
     border-left: 2px solid var(--red);
     animation: animate 4s steps(12) infinite;
 }
