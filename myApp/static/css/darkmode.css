@@ -1,0 +1,47 @@
+.icons {
+    --rotation: 0;
+    position: absolute;
+    left: calc(50% - 20px);
+    top: -117px;
+    margin: auto;
+    transition: 1.2s;
+    width: 40px;
+    text-align: center;
+    transform: rotate(calc(var(--rotation) * 1deg));
+}
+
+.container.dark {
+    background: black;
+}
+
+.dark {
+    background-color: black;
+}
+
+.icon {
+    font-size: 1.7em;
+    padding: 30px 0;
+    color: hsl(50, 85%, 55%);
+    transition: color 1.2s;
+}
+
+.dark .icon {
+    color: #ccc;
+}
+
+.icon1 {
+    transform: rotate(0deg);
+}
+
+.btn-container {
+    text-align: center;
+}
+
+html[data-theme='dark'] {
+    background: #ff6262;
+    filter: invert(1) hue-rotate(190deg)
+}
+
+html[data-theme='dark'] img {
+    filter: invert(1) hue-rotate(190deg)
+}

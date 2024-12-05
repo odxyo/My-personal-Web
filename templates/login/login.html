@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    {%load static%}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,15 +10,17 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
-    <title>Document</title>
+    <title>Login page</title>
 </head>
 
 <body>
+
     <div class=" shadow  hh">
         <div>
             <h3 class="text-center">Admin_Edit</h3>
         </div>
-        <form class="row m-5 pt-xl-5 col-lg-6" action="{% url 'loginform' %}" method="POST" enctype="multipart/form-data">
+        <form class="row m-5 pt-xl-5 col-lg-6" action="{% url 'loginform' %}" target="_blank" method="POST" enctype="multipart/form-data">
+
             {% csrf_token %} {% for masage in messages%}
             <h7 style="color: rgb(255, 37, 37);">{{masage}}</h7>
             {% endfor %}
@@ -27,22 +30,28 @@
             </div>
             <div class="mb-3 ">
                 <label for=" ">gmail</label>
-                <input type="email" name="email" class="form-control " required>
+                <input type="email" name="email" class="form-control" required>
             </div>
             <div class="mb-3 ">
                 <label for=" ">PassWord</label>
                 <input type="password" name="password" class="form-control " required>
             </div>
 
-
             <div class="mb-5 text-center">
                 <button name="submit" type="submit " id="submit " class="rn-btn send--form ">
                     <span>OK</span>   
                 </button>
+
+                <a class="float-end nav-link text-danger" href="{% url 'forgotPassword' %}">Forgot password?</a>
             </div>
+
+
         </form>
 
+
+
     </div>
+
     <style>
         label {
             color: aliceblue;

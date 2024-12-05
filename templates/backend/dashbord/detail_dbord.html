@@ -1,0 +1,136 @@
+{%extends 'backend/dashbord/bashbord.html' %}{%load static%}{% block navsetting %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+
+<body onload="Opener.location.reload()">
+    <div class=" shadow-sm container " style="margin-top: 7rem; ">
+
+
+        <a href="{%url 'db_whatido' %} "><i class="bi bi-arrow-left-short fs-2 "></i></a>
+
+        <div>
+
+            <h3 class="text-dark ">{{detail_dbord.job_name}}</h3>
+        </div>
+
+        <div class="col-lg-8 ">
+
+
+            <div class="col-lg-12 mb-4 ">
+                <form action=" ">
+                    <ul>
+                        <strong><p>Icon</p></strong>
+
+                        <input type="file " id="image_input " name="profile_pic " class="shadow-none " accept="image/jpg, iamge/png " required>
+
+                        <div style="display: flex; " class="text-center ">
+                            <div id="display_image " class="mt-4 " style="width: 6rem; height: 6rem; object-fit: cover; border: 1px solid black; background-position: center; background-size: cover; background-repeat: no-repeat; ">
+                            </div>
+
+                            <img style="width: 6rem; height: 6rem;object-fit: cover; margin: 1.5rem; " src="{{detail_dbord.icons.url}} " alt="icon ">
+
+                        </div>
+
+                        <strong><p>Job name</p></strong>
+
+                        <input type="text " value="{{detail_dbord.job_name}} ">
+                        <div class="form-group ">
+                            <strong><p>your discription job</p></strong>
+
+                            <textarea class="form-control form-control-sm " id=" contact-message " cols="53 " rows="6 ">{{detail_dbord.job_dsp}}</textarea>
+                        </div>
+                        <input class="float-end mt-1 bg-secondary " type="submit" value="Save">
+                    </ul>
+
+                </form>
+
+            </div>
+            <hr>
+
+
+            <div>
+                <!-- portfolio -->
+
+                <h4>My portolio</h4>
+
+                <a href="{%url 'newportfolio'%}" class="m-lg-2 text-danger ">new</a> {%for p in port%}{% if p.i_do_id == detail_dbord.id%}
+
+                <ul class="mb-2 d-flex">
+                    <a href="{%url 'dt_portfolioFix' p.id %} " class=" m-lg-2 nav-link col-lg-11 bg-light bg-gradient">
+                        <tr>{{p.name_work}}</tr>
+                    </a>
+                    <a href="{%url 'delete_portfolio' p.id %} " class="m-lg-2 float-end " onclick="return myFunction() "><i class="fa-solid fa-trash "></i></a>
+
+                </ul>
+                <hr> {%endif%} {%endfor%}
+
+                <!-- blog -->
+
+
+                <h4>Blog</h4>
+                <a href="{%url 'newblog' %} " class="m-lg-2 text-danger ">new</a>{%for bl in blog%} {% if bl.i_do_id == detail_dbord.id%}
+
+                <ul class="mb-2 d-flex">
+
+                    <a href="{%url 'dt_bloFix' bl.id %} " class=" m-lg-2 nav-link col-lg-11 bg-light bg-gradient ">
+                        <tr>{{bl.name_blog}}</tr>
+                    </a>
+                    <a href="{%url 'blogDelete' bl.id %} " class="m-lg-2 float-end " onclick="return myFunction() "><i class=" fa-solid fa-trash "></i></a>
+
+
+                </ul>
+                <hr> {%endif%} {%endfor%}
+                <!-- slills -->
+
+                <h4>Skill</h4>
+                <a href="{% url 'newskill' %} " class="m-lg-2 text-danger ">new</a> {%for sk in skill%} {% if sk.i_do_id == detail_dbord.id%}
+                <ul class=" mb-2 d-flex">
+                    <a href="{% url 'dt_skillFix' sk.id%} " class="m-lg-2 nav-link col-lg-11 bg-light bg-gradient">
+                        <tr>{{sk.name_work_skill}}</tr>
+                    </a>
+                    <a href="{%url 'skillDelete' sk.id%} " class="m-lg-2 float-end " onclick="return myFunction() "><i class="fa-solid fa-trash "></i></a>
+
+
+                </ul>
+                <hr>{%endif%}{%endfor%}
+
+            </div>
+        </div>
+
+    </div>
+    <style>
+        .hh {
+            background: rgb(107, 107, 107);
+        }
+        
+        tr {
+            color: aliceblue;
+        }
+    </style>
+
+    <script>
+        const image_input = document.querySelector("#image_input ");
+        var upload_image = " ";
+
+        image_input.addEventListener("change ", function() {
+            const reader = new FileReader();
+            reader.addEventListener("load ", () => {
+                upload_image = reader.result;
+                document.querySelector("#display_image ").style.backgroundImage = `url(${upload_image})`;
+            });
+            reader.readAsDataURL(this.files[0]);
+        })
+
+        function myFunction() {
+
+            let text = "If you have already deleted, You will not be able recover.\nDo you wana delete? ";
+            if (confirm(text) == true) {
+                return true;
+            } else {
+                return false;
+            }
+            window.location.reload()
+                // document.getElementById("text ").innerHTML = text;
+        }
+    </script>
+</body>{%endblock%}

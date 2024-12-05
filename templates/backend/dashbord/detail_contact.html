@@ -1,0 +1,50 @@
+{%extends 'backend/dashbord/bashbord.html' %}{%load static%}{% block navsetting %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+
+<body>
+
+
+    <div class=" container back--top">
+
+
+
+        <div class="col-lg-8 ">
+
+            <hr>
+            <div>
+                <a href="{%url 'whocontact' %}"><i class="bi bi-arrow-left-short fs-2"></i></a>
+                <!-- portfolio -->
+
+                {% for detail_cont in detail_cont%}
+                <ul class="mb-2 ">
+
+                    <h4>{{detail_cont.name}}</h4>
+                    <br><strong><span>Phone: </span></strong>
+
+                    <tr>{{detail_cont.phone}}</tr>
+                    <br><strong><span>email: </span></strong>
+                    <tr>{{detail_cont.emailC}}</tr>
+                    <br>
+                    <br>
+                    <tr>{{detail_cont.message}}</tr>
+                </ul>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+    <style>
+        .hh {
+            background: rgb(107, 107, 107);
+        }
+        
+        h3,
+        tr {
+            color: aliceblue;
+        }
+    </style>
+
+
+</body>
+
+{%endblock%}
